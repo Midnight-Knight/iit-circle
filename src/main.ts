@@ -1,11 +1,11 @@
 const elementsDark = Array.from(document.querySelector('#frontend_circle-dark-theme')!.children);
 
 for (const element of elementsDark) {
-    if(element.id.includes('hit')) {
-        const id = element.id.slice(0, -4);
-        const elementVector = document.getElementById(id+'-vector');
+    if(element.id.includes('hit-dark')) {
+        const id = element.id.slice(0, -9);
+        const elementVector = document.getElementById(id+'-vector-dark');
 
-        console.log(id, elementVector!.id);
+        //console.log(id, elementVector!.id);
 
         element.addEventListener('click', () => {
             alert(element.id);
@@ -27,11 +27,12 @@ for (const element of elementsDark) {
 const elementsLight = Array.from(document.querySelector('#frontend_circle-light-theme')!.children);
 
 for (const element of elementsLight) {
-    if(element.id.includes('hit')) {
-        const id = element.id.slice(0, -4);
-        const elementVector = document.getElementById(id+'-vector');
+    if(element.id.includes('hit-light')) {
+        const id = element.id.slice(0, -10);
+        const elementVector = document.getElementById(id+'-vector-light');
 
-        //console.log(id, elementVector!.id);
+        //console.log(id);
+        //console.log(elementVector!.id);
 
         element.addEventListener('click', () => {
             alert(element.id);
@@ -68,26 +69,28 @@ function changeTheme() {
         const circleDisabled = document.querySelector('.light-circle');
         const buttonActive = document.querySelector('.button-theme-dark');
         const buttonDisabled = document.querySelector('.button-theme-light');
-        console.log(circleActive);
-        console.log(circleDisabled);
-        console.log(buttonActive);
-        console.log(buttonDisabled);
-        if (circleActive && circleDisabled && buttonActive && buttonDisabled) {
+        const app = document.querySelector('#app');
+        if (circleActive && circleDisabled && buttonActive && buttonDisabled && app) {
             circleActive.classList.add('active');
             circleDisabled.classList.remove('active');
             buttonActive.classList.add('active-button');
             buttonDisabled.classList.remove('active-button');
+            app.classList.remove('light-app');
+            app.classList.add('dark-app');
         }
     } else {
         const circleActive = document.querySelector('.light-circle');
         const circleDisabled = document.querySelector('.dark-circle');
         const buttonActive = document.querySelector('.button-theme-light');
         const buttonDisabled = document.querySelector('.button-theme-dark');
-        if (circleActive && circleDisabled && buttonActive && buttonDisabled) {
+        const app = document.querySelector('#app');
+        if (circleActive && circleDisabled && buttonActive && buttonDisabled && app) {
             circleActive.classList.add('active');
             circleDisabled.classList.remove('active');
             buttonActive.classList.add('active-button');
             buttonDisabled.classList.remove('active-button');
+            app.classList.remove('dark-app');
+            app.classList.add('light-app');
         }
     }
 }
