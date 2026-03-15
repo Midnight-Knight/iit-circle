@@ -1,3 +1,5 @@
+import data from "./data.ts";
+
 const elementsDark = Array.from(document.querySelector('#frontend_circle-dark-theme')!.children);
 
 for (const element of elementsDark) {
@@ -8,7 +10,7 @@ for (const element of elementsDark) {
         //console.log(id, elementVector!.id);
 
         element.addEventListener('click', () => {
-            alert(element.id);
+            alert(JSON.stringify(data[id], null, 2));
         })
 
         element.addEventListener('mouseover', () => {
@@ -35,7 +37,7 @@ for (const element of elementsLight) {
         //console.log(elementVector!.id);
 
         element.addEventListener('click', () => {
-            alert(element.id);
+            alert(JSON.stringify(data[id], null, 2));
         })
 
         element.addEventListener('mouseover', () => {
