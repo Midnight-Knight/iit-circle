@@ -1,0 +1,83 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100dvw;
+  height: 100dvh;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.dark-circle, .light-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  width: 100svmin;
+  height: 100svmin;
+  opacity: 0;
+  transition: 300ms opacity;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  > svg {
+    height: 100%;
+    aspect-ratio: 1 / 1;
+  }
+}
+
+.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.button-theme-dark, .button-theme-light {
+  width: 64px;
+  aspect-ratio: 1 / 1;
+  position: absolute;
+  bottom: 5dvmin;
+  right: 5dvmin;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: 300ms opacity;
+  > svg {
+    height: 100%;
+    aspect-ratio: 1 / 1;
+  }
+}
+
+.active-button {
+  z-index: 10;
+  opacity: 1;
+}
+
+[id*="hit"] {
+  pointer-events: all;
+  cursor: pointer;
+  z-index: 2;
+  opacity: 0;
+}
+
+[id*="vector"] {
+  z-index: 1;
+  pointer-events: none;
+  cursor: none;
+  transition: 300ms stroke-color, 300ms stroke-width;
+}
+
+[id*="title"] {
+  z-index: 1;
+  pointer-events: none;
+  cursor: none;
+}
