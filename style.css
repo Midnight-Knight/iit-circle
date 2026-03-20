@@ -86,17 +86,16 @@
       border: var(--job-color) 2px solid;
       border-radius: 2svmin;
       padding: 4svmin 2svmin;
-
-      > .skills-title {
-        font-size: 1.25em;
-      }
-
       > .skills {
-        margin-left: 2svmin;
-        list-style: none;
-
-        > li:before {
-          content: '-';
+        display: flex;
+        flex-direction: column;
+        gap: 2svmin;
+        >.skills-title{
+          font-size: 1.25em;
+        }
+        >.list{
+          margin-left: 2svmin;
+          list-style: none;
         }
       }
     }
@@ -110,9 +109,6 @@
     > .profiles{
       margin-left: 2svmin;
       list-style: none;
-      > li:before {
-        content: '-';
-      }
     }
   }
   > .additional-information-specialization {

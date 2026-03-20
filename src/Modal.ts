@@ -5,6 +5,7 @@ export class Modal{
     protected sectorDescription: HTMLElement;
     protected directionTitle: HTMLElement;
     protected profiles: HTMLElement;
+    protected profilesTitle: HTMLElement;
     protected sectorData: dataObjectType;
     protected qrImage: HTMLImageElement;
     protected closeButton: HTMLButtonElement;
@@ -14,6 +15,7 @@ export class Modal{
         this.sectorDescription = modal.querySelector('.sector-description') as HTMLElement;
         this.directionTitle = modal.querySelector('.direction-title') as HTMLElement;
         this.profiles = modal.querySelector('.profiles') as HTMLElement;
+        this.profilesTitle = modal.querySelector('.profiles-title') as HTMLElement;
         this.closeButton = modal.querySelector('.modal__close-button') as HTMLButtonElement;
         this.qrImage = modal.querySelector('.qr-code') as HTMLImageElement;
         this.sectorData = data[key];
@@ -37,7 +39,8 @@ export class Modal{
                     this.directionTitle.textContent = "Направление: " + directionsList[0];
                 }
             }
-            if (profilesList) {
+            if (profilesList != null) {
+                this.profilesTitle.hidden = false;
                 profilesList.forEach(profile => {
                     let liElement = document.createElement("li");
                     liElement.textContent = profile;
@@ -67,11 +70,17 @@ export class ModalJob extends Modal {
         const jobList : string[] | null = this.sectorData.jobDescription;
         if (jobList) {
             this.scopeOfWork.textContent = jobList[0];
-            jobList.slice(1).forEach(skill => {
-                let liElement = document.createElement("li");
-                liElement.textContent = skill;
-                this.skills.appendChild(liElement);
-            })
+            const skillsString: string = jobList[1];
+            const lines: string[] = skillsString.split(/\n/).filter(line => line.trim());
+            const title: string = lines[0].trim();
+            const items: string[] = lines.slice(1)
+                .filter(line => line.trim().startsWith('—'))
+                .map(line => line.trim());
+            this.skills.innerHTML =
+                `<p class="skills-title">${title}</p>
+                <ul class="list">
+                    ${items.slice(1).map(item => `<li>${(item)}</li>`).join('')}
+                </ul>` ;
         }
         if (this.sectorData.jobColor != null) {
             this.jobColor = this.sectorData.jobColor;
