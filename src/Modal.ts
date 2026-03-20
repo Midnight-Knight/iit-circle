@@ -89,7 +89,7 @@ export class ModalJob extends Modal {
             this.vacancies.href = this.sectorData.vacancies;
         }
     }
-    public getJobColor(): string {
+    public getJobColor(): string | null {
         return this.jobColor;
     }
 }

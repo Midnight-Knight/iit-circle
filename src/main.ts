@@ -116,12 +116,18 @@ function changeTheme() {
 }
 
 function openModal(id: string): HTMLElement{
-    if (data[id] && data[id].jobTitle != null) {
+    if (data[id] && data[id].jobDescription != null) {
         const templateElement = document.getElementById("position-modal");
         const cloneElement = templateElement.content.cloneNode(true) as HTMLElement;
         const modalElement = cloneElement.firstElementChild as HTMLElement;
         const modalObject = new ModalJob(modalElement, data, id);
-        document.documentElement.style.setProperty('--job-color', modalObject.getJobColor());
+        const color: string | null = modalObject.getJobColor();
+        if (color == null) {
+            document.documentElement.style.setProperty('--job-color', 'var(--main-color-inside)');
+        }
+        else {
+            document.documentElement.style.setProperty('--job-color', color);
+        }
         return modalElement as HTMLElement;
     }
     else{

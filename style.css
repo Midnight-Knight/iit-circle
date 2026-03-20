@@ -37,10 +37,11 @@
   flex-direction: column;
   z-index: 10;
   width: 55svmin;
+  max-height: 85svmin;
   border: var(--main-color-inside) 2px solid;
   border-radius:2svmin;
   padding: 4svmin;
-  gap: 2vmin;
+  gap: 2svmin;
   font-size: 0.8rem;
   font-family: 'Neue-Bold';
   >.modal__close-button{
@@ -65,50 +66,67 @@
     flex-direction: column;
     gap: 2svmin;
     color: var(--main-color-inside);
-    > .sector-description {
-      font-family: 'Neue-Light';
+    > .div-description{
+      max-height: 15svmin;
+      overflow: auto;
       border: var(--main-color-inside) 2px solid;
       border-radius:2svmin;
-      padding: 4svmin 2svmin;
+      > .sector-description {
+        font-family: 'Neue-Light';
+        padding: 2svmin 2svmin;
+      }
+    }
+    >.div-description::-webkit-scrollbar {
+      display: none;
     }
   }
   > .job{
     display: flex;
     flex-direction: column;
-    gap: 2svmin;
+    gap: 1svmin;
     color: var(--job-color);
     >.job-description {
+      max-height: 20svmin;
+      overflow: auto;
       font-family: 'Neue-Light';
       display: flex;
       flex-direction: column;
-      gap: 2svmin;
+      gap: 1svmin;
       color: var(--main-color-inside);
       border: var(--job-color) 2px solid;
       border-radius: 2svmin;
-      padding: 4svmin 2svmin;
+      padding: 2svmin 2svmin;
       > .skills {
         display: flex;
         flex-direction: column;
-        gap: 2svmin;
+        gap: 1svmin;
         >.skills-title{
           font-size: 1.25em;
         }
         >.list{
-          margin-left: 2svmin;
+          margin-left: 1svmin;
           list-style: none;
         }
       }
+    }
+    >.job-description::-webkit-scrollbar {
+      display: none;
     }
   }
   > .direction-profiles{
     display: flex;
     flex-direction: column;
-    gap: 2svmin;
+    gap: 1svmin;
     color: var(--main-color-inside);
     font-family: 'Neue-Light';
     > .profiles{
+      max-height: 8svmin;
+      overflow: auto;
       margin-left: 2svmin;
       list-style: none;
+    }
+    >.profiles::-webkit-scrollbar {
+      display: none;
     }
   }
   > .additional-information-specialization {
