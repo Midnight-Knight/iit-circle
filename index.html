@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="stylesheet" href="style.css" />
     <title>itt-proforientation-circle</title>
@@ -1233,6 +1233,65 @@
             </svg>
         </button>
     </div>
+    <template id="specialization-modal">
+        <div class="modal">
+            <button class="modal__close-button"><svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle class="front" cx="50" cy="50" r="50" fill="#151515"/>
+                <path d="M25 25L75 75" stroke="#E6E6E6" stroke-width="4" stroke-linecap="round"/>
+                <path d="M75 25L25 75" stroke="#E6E6E6" stroke-width="4" stroke-linecap="round"/>
+                <circle class="back" opacity="0.8" cx="50" cy="50" r="48" stroke="#E6E6E6" stroke-width="4"/>
+            </svg>
+            </button>
+            <div class="sector">
+                <h1 class="sector-title"></h1>
+                <p class="sector-description"></p>
+            </div>
+            <div class="direction-profiles">
+                <p class="direction-title"></p>
+                <p class="profiles-title">Профили:</p>
+                <ul class="profiles">
+                </ul>
+            </div>
+            <div class="additional-information-specialization">
+                <p>Для ознакомления со специальностями нажмите на интересующий сектор</p>
+                <img class="qr-code" src="" alt=""/>
+            </div>
+        </div>
+    </template>
+    <template id="position-modal">
+        <div class="modal">
+            <button class="modal__close-button"><svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle class="front" cx="50" cy="50" r="50" fill="#151515"/>
+                <path d="M25 25L75 75" stroke="#E6E6E6" stroke-width="4" stroke-linecap="round"/>
+                <path d="M75 25L25 75" stroke="#E6E6E6" stroke-width="4" stroke-linecap="round"/>
+                <circle class="back" opacity="0.8" cx="50" cy="50" r="48" stroke="#E6E6E6" stroke-width="4"/>
+            </svg>
+            </button>
+            <div class="sector">
+                <h1 class="sector-title"></h1>
+                <p class="sector-description"></p>
+            </div>
+            <div class="job">
+                <h1 class="job-title"></h1>
+                <div class="job-description">
+                    <p class="scope-of-work"></p>
+                    <h3 class="skills-title">Требования</h3>
+                    <ul class="skills">
+                    </ul>
+                </div>
+            </div>
+            <div class="direction-profiles">
+                <p class="direction-title"></p>
+                <p class="profiles-title">Профили:</p>
+                <ul class="profiles">
+                </ul>
+            </div>
+            <div class="additional-information-position">
+                <a href="">Посмотреть вакансии</a>
+                <img class="qr-code" src="" alt="" hidden="hidden"/>
+            </div>
+        </div>
+    </template>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
