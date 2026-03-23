@@ -6,7 +6,7 @@ const app = document.querySelector("#app");
 
 const elementsDark = Array.from(document.querySelector('#frontend_circle-dark-theme')!.children);
 
-function changePositionCircle(scale: number | null | undefined = 1.0 ,x: string | null | undefined = '0%', y: string | null | undefined = '0%')
+export function changePositionCircle(scale: number | null | undefined = 1.0 ,x: string | null | undefined = '0%', y: string | null | undefined = '0%')
 {
     if (app)
     {
@@ -159,7 +159,19 @@ function changeTheme() {
         }
     }
 }
-
+function changePosition(el: HTMLElement, position: string | null) {
+    switch (position) {
+        case 'left':
+            el.style.left = "15svmin";
+            break;
+        case 'right':
+            el.style.right = "15svmin";
+            break;
+        case 'center-right':
+            el.style.right = "48svmin";
+            break;
+    }
+}
 function openModal(id: string): HTMLElement{
     if (data[id] && data[id].jobDescription != null) {
         const templateElement = document.getElementById("position-modal") as HTMLTemplateElement | null;
@@ -168,6 +180,8 @@ function openModal(id: string): HTMLElement{
         const modalElement = cloneElement.firstElementChild as HTMLElement;
         const modalObject = new ModalJob(modalElement, data, id);
         const color: string | null = modalObject.getJobColor();
+        const position = modalObject.getPosition();
+        changePosition(modalElement,position);
         if (color == null) {
             document.documentElement.style.setProperty('--job-color', 'var(--main-color-inside)');
         }
@@ -181,7 +195,9 @@ function openModal(id: string): HTMLElement{
         if (!templateElement) throw new Error("Template 'specialization-modal' not found");
         const cloneElement = templateElement.content.cloneNode(true) as HTMLElement;
         const modalElement = cloneElement.firstElementChild as HTMLElement;
-        new Modal(modalElement, data, id);
+        const modalObject = new Modal(modalElement, data, id);
+        const position = modalObject.getPosition();
+        changePosition(modalElement,position);
         return modalElement as HTMLElement;
     }
 }
