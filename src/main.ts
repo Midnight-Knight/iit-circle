@@ -17,7 +17,9 @@ function changePositionCircle(scale: number | null | undefined = 1.0 ,x: string 
             type: 'spring',
             stiffness: 60,
             damping: 20,
-            mass: 1.5
+            mass: 1.5,
+            restDelta: 0.01,
+            restSpeed: 0.01
         });
     }
 }
