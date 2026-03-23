@@ -24,12 +24,76 @@ export function changePositionCircle(scale: number | null | undefined = 1.0 ,x: 
     }
 }
 
+const hoverDark = (elementVector: HTMLElement | null, elementTitle: HTMLElement | null, hasElement: Map<string, "active" | "activeAndHover" | "noActive" | "noActiveAndHover">, id: string) => {
+    const has = hasElement.get(id);
+    switch (has) {
+        case 'active':
+            hasElement.set(id, 'activeAndHover');
+            elementVector!.setAttribute('stroke-width', '8');
+            elementVector!.setAttribute('stroke-color', '#FFFFFF');
+            break;
+        case 'activeAndHover':
+            hasElement.set(id, 'active');
+            elementVector!.setAttribute('stroke-width', '2');
+            elementVector!.setAttribute('stroke-color', '#9D9D9D');
+            break;
+        case 'noActive':
+            hasElement.set(id, 'noActiveAndHover');
+            elementVector!.setAttribute('opacity', '1');
+            elementTitle!.setAttribute('opacity', '1');
+            elementVector!.setAttribute('stroke-width', '8');
+            elementVector!.setAttribute('stroke-color', '#FFFFFF');
+            break;
+        case 'noActiveAndHover':
+            hasElement.set(id, 'noActive');
+            elementVector!.setAttribute('opacity', '0.5');
+            elementTitle!.setAttribute('opacity', '0.5');
+            elementVector!.setAttribute('stroke-width', '2');
+            elementVector!.setAttribute('stroke-color', '#9D9D9D');
+            break;
+    }
+}
+
+const hoverLight = (elementVector: HTMLElement | null, elementTitle: HTMLElement | null, hasElement: Map<string, "active" | "activeAndHover" | "noActive" | "noActiveAndHover">, id: string) => {
+    const has = hasElement.get(id);
+    switch (has) {
+        case 'active':
+            hasElement.set(id, 'activeAndHover');
+            elementVector!.setAttribute('stroke-width', '8');
+            elementVector!.setAttribute('stroke-color', '#151515');
+            break;
+        case 'activeAndHover':
+            hasElement.set(id, 'active');
+            elementVector!.setAttribute('stroke-width', '2');
+            elementVector!.setAttribute('stroke-color', '#3B3C48');
+            break;
+        case 'noActive':
+            hasElement.set(id, 'noActiveAndHover');
+            elementVector!.setAttribute('opacity', '1');
+            elementTitle!.setAttribute('opacity', '1');
+            elementVector!.setAttribute('stroke-width', '8');
+            elementVector!.setAttribute('stroke-color', '#151515');
+            break;
+        case 'noActiveAndHover':
+            hasElement.set(id, 'noActive');
+            elementVector!.setAttribute('opacity', '0.5');
+            elementTitle!.setAttribute('opacity', '0.5');
+            elementVector!.setAttribute('stroke-width', '2');
+            elementVector!.setAttribute('stroke-color', '#3B3C48');
+            break;
+    }
+}
+
+const hasDarkElement = new Map<string, 'active' | 'activeAndHover' | 'noActive' | 'noActiveAndHover'>();
+const hasLightElement = new Map<string, 'active' | 'activeAndHover' | 'noActive' | 'noActiveAndHover'>();
+
 for (const element of elementsDark) {
     if(element.id.includes('hit-dark')) {
         const id = element.id.slice(0, -9);
         const elementVector = document.getElementById(id+'-vector-dark');
+        const elementTitle = document.getElementById(id+'-title-dark');
+        hasDarkElement.set(id, 'active');
 
-        //console.log(id, elementVector!.id);
         element.addEventListener('click', () => {
             if (app)
             {
@@ -40,30 +104,55 @@ for (const element of elementsDark) {
                 for (const el of elementsDark) {
                     if (el.id.includes('hit-dark')) {
                         const idForEach = el.id.slice(0, -9);
+                        const hasForEach = hasDarkElement.get(idForEach);
                         const elVectorForEach = document.getElementById(idForEach+'-vector-dark');
                         const elTitleForEach = document.getElementById(idForEach+'-title-dark');
-                        if (idForEach !== id) {
-                            elTitleForEach!.setAttribute('opacity', '0.5');
-                            elVectorForEach!.setAttribute('opacity', '0.5');
-                        } else {
-                            elTitleForEach!.setAttribute('opacity', '1');
-                            elVectorForEach!.setAttribute('opacity', '1');
+                        switch (hasForEach) {
+                            case 'active':
+                                if(idForEach !== id) {
+                                    hasDarkElement.set(id, 'noActive');
+                                    elTitleForEach!.setAttribute('opacity', '0.5');
+                                    elVectorForEach!.setAttribute('opacity', '0.5');
+                                    elVectorForEach!.setAttribute('stroke-width', '2');
+                                    elVectorForEach!.setAttribute('stroke-color', '#9D9D9D');
+                                }
+                                break;
+                            case 'activeAndHover':
+                                if(idForEach !== id) {
+                                    hasDarkElement.set(id, 'noActiveAndHover');
+                                    elTitleForEach!.setAttribute('opacity', '1');
+                                    elVectorForEach!.setAttribute('opacity', '1');
+                                    elVectorForEach!.setAttribute('stroke-width', '8');
+                                    elVectorForEach!.setAttribute('stroke-color', '#FFFFFF');
+                                }
+                                break;
+                            case 'noActive':
+                                if(idForEach === id) {
+                                    hasDarkElement.set(id, 'active');
+                                    elTitleForEach!.setAttribute('opacity', '1');
+                                    elVectorForEach!.setAttribute('opacity', '1');
+                                    elVectorForEach!.setAttribute('stroke-width', '2');
+                                    elVectorForEach!.setAttribute('stroke-color', '#9D9D9D');
+                                }
+                                break;
+                            case 'noActiveAndHover':
+                                if(idForEach === id) {
+                                    hasDarkElement.set(id, 'activeAndHover');
+                                    elTitleForEach!.setAttribute('opacity', '1');
+                                    elVectorForEach!.setAttribute('opacity', '1');
+                                    elVectorForEach!.setAttribute('stroke-width', '8');
+                                    elVectorForEach!.setAttribute('stroke-color', '#FFFFFF');
+                                }
+                                break;
                         }
                     }
                 }
             }
         })
 
-        element.addEventListener('mouseover', () => {
-            console.log('hover',elementVector!.id);
-            elementVector!.setAttribute('stroke-width', '8');
-            elementVector!.setAttribute('stroke-color', '#FFFFFF');
-        })
+        element.addEventListener('mouseover', () => hoverDark(elementVector, elementTitle, hasDarkElement, id))
 
-        element.addEventListener('mouseout', () => {
-            elementVector!.setAttribute('stroke-width', '2');
-            elementVector!.setAttribute('stroke-color', '#9D9D9D');
-        })
+        element.addEventListener('mouseout', () => hoverDark(elementVector, elementTitle, hasDarkElement, id))
     }
 }
 const elementsLight = Array.from(document.querySelector('#frontend_circle-light-theme')!.children);
@@ -72,9 +161,8 @@ for (const element of elementsLight) {
     if(element.id.includes('hit-light')) {
         const id = element.id.slice(0, -10);
         const elementVector = document.getElementById(id+'-vector-light');
-
-        //console.log(id);
-        //console.log(elementVector!.id);
+        const elementTitle = document.getElementById(id+'-title-light');
+        hasLightElement.set(id, 'active');
 
         element.addEventListener('click', () => {
             if (app)
@@ -98,16 +186,9 @@ for (const element of elementsLight) {
             }
         })
 
-        element.addEventListener('mouseover', () => {
-            console.log('hover',elementVector!.id);
-            elementVector!.setAttribute('stroke-width', '8');
-            elementVector!.setAttribute('stroke-color', '#151515');
-        })
+        element.addEventListener('mouseover', () => hoverLight(elementVector, elementTitle, hasLightElement, id))
 
-        element.addEventListener('mouseout', () => {
-            elementVector!.setAttribute('stroke-width', '2');
-            elementVector!.setAttribute('stroke-color', '#3B3C48');
-        })
+        element.addEventListener('mouseout', () => hoverLight(elementVector, elementTitle, hasLightElement, id))
     }
 }
 
