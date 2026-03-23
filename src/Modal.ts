@@ -12,7 +12,7 @@ export class Modal{
 
     constructor(modal: HTMLElement, data: dataType, key: string) {
         this.sectorTitle = modal.querySelector('.sector-title') as HTMLElement;
-        this.sectorDescription = modal.querySelector('.sector-description') as HTMLElement;
+        this.sectorDescription = modal.querySelector('.div-description') as HTMLElement;
         this.directionTitle = modal.querySelector('.direction-title') as HTMLElement;
         this.profiles = modal.querySelector('.profiles') as HTMLElement;
         this.profilesTitle = modal.querySelector('.profiles-title') as HTMLElement;
@@ -21,7 +21,13 @@ export class Modal{
         this.sectorData = data[key];
         if (this.sectorData) {
             this.sectorTitle.textContent = this.sectorData.sectorTitle;
-            this.sectorDescription.textContent = this.sectorData.sectorDescription[0];
+            const descriptionList: string[] = this.sectorData.sectorDescription;
+            descriptionList.forEach(description => {
+                const pDesc = document.createElement("p");
+                pDesc.classList.add("sector-description");
+                pDesc.textContent = description;
+                this.sectorDescription.appendChild(pDesc);
+            })
             if (this.sectorData.url != null) {
                 this.qrImage.src = this.sectorData.url;
                 this.qrImage.hidden = false;
@@ -33,7 +39,8 @@ export class Modal{
             const profilesList: string[] | null = this.sectorData.profiles;
             if (directionsList) {
                 if (directionsList.length > 1){
-                    this.directionTitle.textContent = "Направления: " + directionsList.map(direction => direction).join(', ');
+                    this.directionTitle.textContent = "Направления: "
+                        + directionsList.map(direction => direction).join(', ');
                 }
                 else {
                     this.directionTitle.textContent = "Направление: " + directionsList[0];
