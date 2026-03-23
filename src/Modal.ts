@@ -65,14 +65,14 @@ export class ModalJob extends Modal {
     protected jobTitle: HTMLElement;
     protected scopeOfWork: HTMLElement;
     protected skills: HTMLElement;
-    protected vacancies: HTMLElement;
-    protected jobColor: string;
+    protected vacancies: HTMLAnchorElement;
+    protected jobColor: string | null = null;
     constructor(modal: HTMLElement, data: dataType, key: string) {
         super(modal, data, key);
         this.jobTitle = modal.querySelector('.job-title') as HTMLElement;
         this.scopeOfWork = modal.querySelector('.scope-of-work') as HTMLElement;
         this.skills = modal.querySelector('.skills') as HTMLElement;
-        this.vacancies = modal.querySelector('.vacancies') as HTMLElement;
+        this.vacancies = modal.querySelector('.vacancies') as HTMLAnchorElement;
         this.jobTitle.textContent = this.sectorData.jobTitle;
         const jobList : string[] | null = this.sectorData.jobDescription;
         if (jobList) {
