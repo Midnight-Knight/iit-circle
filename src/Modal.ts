@@ -1,4 +1,5 @@
 import type {dataObjectType, dataType} from "./data.ts";
+import {changePositionCircle} from "./main.ts";
 
 export class Modal{
     protected sectorTitle: HTMLElement;
@@ -55,9 +56,13 @@ export class Modal{
                 })
             }
             this.closeButton.addEventListener('click', () => {
+                changePositionCircle();
                 modal.remove();
             });
         }
+    }
+    public getPosition(): string|null {
+        return this.sectorData.positionSide;
     }
 }
 
