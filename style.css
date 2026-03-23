@@ -264,12 +264,13 @@
   z-index: 1;
   pointer-events: none;
   cursor: none;
-  transition: 300ms stroke-color, 300ms stroke-width;
+  transition: 300ms stroke-color, 300ms stroke-width, 500ms opacity;
 }
 
 [id*="title"] {
   z-index: 1;
   pointer-events: none;
   cursor: none;
+  transition: 500ms opacity;
 }
 

@@ -8,14 +8,10 @@ const elementsDark = Array.from(document.querySelector('#frontend_circle-dark-th
 
 function changePositionCircle(scale: number | null | undefined = 1.0 ,x: string | null | undefined = '0%', y: string | null | undefined = '0%')
 {
-    console.log(app)
     if (app)
     {
         const circleLight = app.querySelector('.light-circle')?.firstElementChild;
         const circleDark = app.querySelector('.dark-circle')?.firstElementChild;
-
-        console.log(circleLight);
-        console.log(circleDark);
 
         animate([circleLight, circleDark], { scale, x, y }, {
             type: 'spring',
@@ -39,6 +35,20 @@ for (const element of elementsDark) {
                 const existingModal = app.querySelector('.modal');
                 if (existingModal) existingModal.remove();
                 app.appendChild(openModal(id));
+                for (const el of elementsDark) {
+                    if (el.id.includes('hit-dark')) {
+                        const idForEach = el.id.slice(0, -9);
+                        const elVectorForEach = document.getElementById(idForEach+'-vector-dark');
+                        const elTitleForEach = document.getElementById(idForEach+'-title-dark');
+                        if (idForEach !== id) {
+                            elTitleForEach!.setAttribute('opacity', '0.5');
+                            elVectorForEach!.setAttribute('opacity', '0.5');
+                        } else {
+                            elTitleForEach!.setAttribute('opacity', '1');
+                            elVectorForEach!.setAttribute('opacity', '1');
+                        }
+                    }
+                }
             }
         })
 
@@ -71,6 +81,18 @@ for (const element of elementsLight) {
                 const existingModal = app.querySelector('.modal');
                 if (existingModal) existingModal.remove();
                 app.appendChild(openModal(id));
+                for (const el of elementsLight) {
+                    const idForEach = el.id.slice(0, -10);
+                    const elVectorForEach = document.getElementById(idForEach+'-vector-light');
+                    const elTitleForEach = document.getElementById(idForEach+'-title-light');
+                    if (idForEach !== id) {
+                        elTitleForEach!.setAttribute('opacity', '0.5');
+                        elVectorForEach!.setAttribute('opacity', '0.5');
+                    } else {
+                        elTitleForEach!.setAttribute('opacity', '1');
+                        elVectorForEach!.setAttribute('opacity', '1');
+                    }
+                }
             }
         })
 
