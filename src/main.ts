@@ -17,7 +17,12 @@ function changePositionCircle(scale: number | null | undefined = 1.0 ,x: string 
         console.log(circleLight);
         console.log(circleDark);
 
-        animate([circleLight, circleDark], { scale, x, y }, { duration: 0.3 });
+        animate([circleLight, circleDark], { scale, x, y }, {
+            type: 'spring',
+            stiffness: 60,
+            damping: 20,
+            mass: 1.5
+        });
     }
 }
 
@@ -133,7 +138,8 @@ function changeTheme() {
 
 function openModal(id: string): HTMLElement{
     if (data[id] && data[id].jobDescription != null) {
-        const templateElement = document.getElementById("position-modal");
+        const templateElement = document.getElementById("position-modal") as HTMLTemplateElement | null;
+        if (!templateElement) throw new Error("Template 'position-modal' not found");
         const cloneElement = templateElement.content.cloneNode(true) as HTMLElement;
         const modalElement = cloneElement.firstElementChild as HTMLElement;
         const modalObject = new ModalJob(modalElement, data, id);
@@ -147,7 +153,8 @@ function openModal(id: string): HTMLElement{
         return modalElement as HTMLElement;
     }
     else{
-        const templateElement = document.getElementById("specialization-modal");
+        const templateElement = document.getElementById("specialization-modal") as HTMLTemplateElement | null;
+        if (!templateElement) throw new Error("Template 'specialization-modal' not found");
         const cloneElement = templateElement.content.cloneNode(true) as HTMLElement;
         const modalElement = cloneElement.firstElementChild as HTMLElement;
         new Modal(modalElement, data, id);
