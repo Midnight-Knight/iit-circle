@@ -2,11 +2,41 @@ import data from "./data.ts";
 import {Modal, ModalJob} from "./Modal.ts";
 import {animate} from "motion";
 
+const isTouch = window.matchMedia('(hover: none)').matches;
 const app = document.querySelector("#app");
 
 const elementsDark = Array.from(document.querySelector('#frontend_circle-dark-theme')!.children);
+const elementsLight = Array.from(document.querySelector('#frontend_circle-light-theme')!.children);
 
-export function changePositionCircle(scale: number | null | undefined = 1.0 ,x: string | null | undefined = '0%', y: string | null | undefined = '0%')
+const darkElementsCache = new Map<string, { vector: HTMLElement, title: HTMLElement }>();
+const lightElementsCache = new Map<string, { vector: HTMLElement, title: HTMLElement }>();
+
+type ElementState = 'active' | 'activeAndHover' | 'noActive' | 'noActiveAndHover' | 'accentuated';
+
+const hasDarkElement = new Map<string, ElementState>();
+const hasLightElement = new Map<string, ElementState>();
+
+for (const element of elementsDark) {
+    if (element.id.includes('hit-dark')) {
+        const id = element.id.slice(0, -9);
+        darkElementsCache.set(id, {
+            vector: document.getElementById(id + '-vector-dark') as HTMLElement,
+            title: document.getElementById(id + '-title-dark') as HTMLElement,
+        });
+    }
+}
+
+for (const element of elementsLight) {
+    if (element.id.includes('hit-light')) {
+        const id = element.id.slice(0, -10);
+        lightElementsCache.set(id, {
+            vector: document.getElementById(id + '-vector-light') as HTMLElement,
+            title: document.getElementById(id + '-title-light') as HTMLElement,
+        });
+    }
+}
+
+export function changePositionCircle(scale: number | null | undefined = 1.0 , x: string | null | undefined = '0%', y: string | null | undefined = '0%')
 {
     if (app)
     {
@@ -18,15 +48,17 @@ export function changePositionCircle(scale: number | null | undefined = 1.0 ,x: 
             stiffness: 60,
             damping: 20,
             mass: 1.5,
-            restDelta: 0.01,
-            restSpeed: 0.01
+            restDelta: isTouch ? 0.05 : 0.01,
+            restSpeed: isTouch ? 0.05 : 0.01
         });
     }
 }
 
-const hoverDark = (elementVector: HTMLElement | null, elementTitle: HTMLElement | null, hasElement: Map<string, "active" | "activeAndHover" | "noActive" | "noActiveAndHover">, id: string) => {
+const hoverDark = (elementVector: HTMLElement | null, elementTitle: HTMLElement | null, hasElement: Map<string, ElementState>, id: string) => {
     const has = hasElement.get(id);
     switch (has) {
+        case 'accentuated':
+            break;
         case 'active':
             hasElement.set(id, 'activeAndHover');
             elementVector!.setAttribute('stroke-width', '8');
@@ -52,11 +84,13 @@ const hoverDark = (elementVector: HTMLElement | null, elementTitle: HTMLElement 
             elementVector!.setAttribute('stroke-color', '#9D9D9D');
             break;
     }
-}
+};
 
-const hoverLight = (elementVector: HTMLElement | null, elementTitle: HTMLElement | null, hasElement: Map<string, "active" | "activeAndHover" | "noActive" | "noActiveAndHover">, id: string) => {
+const hoverLight = (elementVector: HTMLElement | null, elementTitle: HTMLElement | null, hasElement: Map<string, ElementState>, id: string) => {
     const has = hasElement.get(id);
     switch (has) {
+        case 'accentuated':
+            break;
         case 'active':
             hasElement.set(id, 'activeAndHover');
             elementVector!.setAttribute('stroke-width', '8');
@@ -82,113 +116,163 @@ const hoverLight = (elementVector: HTMLElement | null, elementTitle: HTMLElement
             elementVector!.setAttribute('stroke-color', '#3B3C48');
             break;
     }
+};
+
+function applyAccentuatedDark(elVector: HTMLElement, elTitle: HTMLElement) {
+    elTitle.setAttribute('opacity', '1');
+    elVector.setAttribute('opacity', '1');
+    elVector.setAttribute('stroke-width', '8');
+    elVector.setAttribute('stroke-color', '#FFFFFF');
 }
 
-const hasDarkElement = new Map<string, 'active' | 'activeAndHover' | 'noActive' | 'noActiveAndHover'>();
-const hasLightElement = new Map<string, 'active' | 'activeAndHover' | 'noActive' | 'noActiveAndHover'>();
+function applyAccentuatedLight(elVector: HTMLElement, elTitle: HTMLElement) {
+    elTitle.setAttribute('opacity', '1');
+    elVector.setAttribute('opacity', '1');
+    elVector.setAttribute('stroke-width', '8');
+    elVector.setAttribute('stroke-color', '#151515');
+}
+
+export function resetAllElements() {
+    for (const el of elementsDark) {
+        if (el.id.includes('hit-dark')) {
+            const idForEach = el.id.slice(0, -9);
+            const elVectorForEach = darkElementsCache.get(idForEach)?.vector as HTMLElement;
+            const elTitleForEach = darkElementsCache.get(idForEach)?.title as HTMLElement;
+
+            hasDarkElement.set(idForEach, 'active');
+            elTitleForEach.setAttribute('opacity', '1');
+            elVectorForEach.setAttribute('opacity', '1');
+            elVectorForEach.setAttribute('stroke-width', '2');
+            elVectorForEach.setAttribute('stroke-color', '#9D9D9D');
+        }
+    }
+
+    for (const el of elementsLight) {
+        if (el.id.includes('hit-light')) {
+            const idForEach = el.id.slice(0, -10);
+            const elVectorForEach = lightElementsCache.get(idForEach)?.vector as HTMLElement;
+            const elTitleForEach = lightElementsCache.get(idForEach)?.title as HTMLElement;
+
+            hasLightElement.set(idForEach, 'active');
+            elTitleForEach.setAttribute('opacity', '1');
+            elVectorForEach.setAttribute('opacity', '1');
+            elVectorForEach.setAttribute('stroke-width', '2');
+            elVectorForEach.setAttribute('stroke-color', '#3B3C48');
+        }
+    }
+}
 
 for (const element of elementsDark) {
     if(element.id.includes('hit-dark')) {
         const id = element.id.slice(0, -9);
-        const elementVector = document.getElementById(id+'-vector-dark');
-        const elementTitle = document.getElementById(id+'-title-dark');
+        const elementVector = darkElementsCache.get(id)?.vector as HTMLElement;
+        const elementTitle = darkElementsCache.get(id)?.title as HTMLElement;
         hasDarkElement.set(id, 'active');
 
-        element.addEventListener('click', () => {
-            if (app)
-            {
-                changePositionCircle(data[id].animationScale, data[id].positionAnimX, data[id].positionAnimY)
+        function touchOrClick() {
+            if (app) {
+                changePositionCircle(data[id].animationScale, data[id].positionAnimX, data[id].positionAnimY);
                 const existingModal = app.querySelector('.modal');
                 if (existingModal) existingModal.remove();
                 app.appendChild(openModal(id));
+
                 for (const el of elementsDark) {
                     if (el.id.includes('hit-dark')) {
                         const idForEach = el.id.slice(0, -9);
+                        const elVectorForEach = darkElementsCache.get(idForEach)?.vector as HTMLElement;
+                        const elTitleForEach = darkElementsCache.get(idForEach)?.title as HTMLElement;
                         const hasForEach = hasDarkElement.get(idForEach);
-                        const elVectorForEach = document.getElementById(idForEach+'-vector-dark');
-                        const elTitleForEach = document.getElementById(idForEach+'-title-dark');
-                        switch (hasForEach) {
-                            case 'active':
-                                if(idForEach !== id) {
-                                    hasDarkElement.set(id, 'noActive');
-                                    elTitleForEach!.setAttribute('opacity', '0.5');
-                                    elVectorForEach!.setAttribute('opacity', '0.5');
-                                    elVectorForEach!.setAttribute('stroke-width', '2');
-                                    elVectorForEach!.setAttribute('stroke-color', '#9D9D9D');
-                                }
-                                break;
-                            case 'activeAndHover':
-                                if(idForEach !== id) {
-                                    hasDarkElement.set(id, 'noActiveAndHover');
-                                    elTitleForEach!.setAttribute('opacity', '1');
-                                    elVectorForEach!.setAttribute('opacity', '1');
-                                    elVectorForEach!.setAttribute('stroke-width', '8');
-                                    elVectorForEach!.setAttribute('stroke-color', '#FFFFFF');
-                                }
-                                break;
-                            case 'noActive':
-                                if(idForEach === id) {
-                                    hasDarkElement.set(id, 'active');
-                                    elTitleForEach!.setAttribute('opacity', '1');
-                                    elVectorForEach!.setAttribute('opacity', '1');
-                                    elVectorForEach!.setAttribute('stroke-width', '2');
-                                    elVectorForEach!.setAttribute('stroke-color', '#9D9D9D');
-                                }
-                                break;
-                            case 'noActiveAndHover':
-                                if(idForEach === id) {
-                                    hasDarkElement.set(id, 'activeAndHover');
-                                    elTitleForEach!.setAttribute('opacity', '1');
-                                    elVectorForEach!.setAttribute('opacity', '1');
-                                    elVectorForEach!.setAttribute('stroke-width', '8');
-                                    elVectorForEach!.setAttribute('stroke-color', '#FFFFFF');
-                                }
-                                break;
+
+                        if (idForEach === id) {
+                            hasDarkElement.set(idForEach, 'accentuated');
+                            applyAccentuatedDark(elVectorForEach, elTitleForEach);
+                        } else {
+                            if (hasForEach === 'activeAndHover' || hasForEach === 'noActiveAndHover') {
+                                hasDarkElement.set(idForEach, 'noActiveAndHover');
+                                elVectorForEach.setAttribute('stroke-width', '8');
+                                elVectorForEach.setAttribute('stroke-color', '#FFFFFF');
+                                elTitleForEach.setAttribute('opacity', '1');
+                                elVectorForEach.setAttribute('opacity', '1');
+                            } else {
+                                hasDarkElement.set(idForEach, 'noActive');
+                                elVectorForEach.setAttribute('stroke-width', '2');
+                                elVectorForEach.setAttribute('stroke-color', '#9D9D9D');
+                                elTitleForEach.setAttribute('opacity', '0.5');
+                                elVectorForEach.setAttribute('opacity', '0.5');
+                            }
                         }
                     }
                 }
             }
-        })
+        }
 
-        element.addEventListener('mouseover', () => hoverDark(elementVector, elementTitle, hasDarkElement, id))
-
-        element.addEventListener('mouseout', () => hoverDark(elementVector, elementTitle, hasDarkElement, id))
+        if (isTouch) {
+            element.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                touchOrClick();
+            }, { passive: false });
+        } else {
+            element.addEventListener('click', touchOrClick);
+            element.addEventListener('mouseover', () => hoverDark(elementVector, elementTitle, hasDarkElement, id))
+            element.addEventListener('mouseout', () => hoverDark(elementVector, elementTitle, hasDarkElement, id))
+        }
     }
 }
-const elementsLight = Array.from(document.querySelector('#frontend_circle-light-theme')!.children);
 
 for (const element of elementsLight) {
     if(element.id.includes('hit-light')) {
         const id = element.id.slice(0, -10);
-        const elementVector = document.getElementById(id+'-vector-light');
-        const elementTitle = document.getElementById(id+'-title-light');
+        const elementVector = lightElementsCache.get(id)?.vector as HTMLElement;
+        const elementTitle = lightElementsCache.get(id)?.title as HTMLElement;
         hasLightElement.set(id, 'active');
 
-        element.addEventListener('click', () => {
-            if (app)
-            {
-                changePositionCircle(data[id].animationScale, data[id].positionAnimX, data[id].positionAnimY)
+        function touchOrClick() {
+            if (app) {
+                changePositionCircle(data[id].animationScale, data[id].positionAnimX, data[id].positionAnimY);
                 const existingModal = app.querySelector('.modal');
                 if (existingModal) existingModal.remove();
                 app.appendChild(openModal(id));
+
                 for (const el of elementsLight) {
-                    const idForEach = el.id.slice(0, -10);
-                    const elVectorForEach = document.getElementById(idForEach+'-vector-light');
-                    const elTitleForEach = document.getElementById(idForEach+'-title-light');
-                    if (idForEach !== id) {
-                        elTitleForEach!.setAttribute('opacity', '0.5');
-                        elVectorForEach!.setAttribute('opacity', '0.5');
-                    } else {
-                        elTitleForEach!.setAttribute('opacity', '1');
-                        elVectorForEach!.setAttribute('opacity', '1');
+                    if (el.id.includes('hit-light')) {
+                        const idForEach = el.id.slice(0, -10);
+                        const elVectorForEach = lightElementsCache.get(idForEach)?.vector as HTMLElement;
+                        const elTitleForEach = lightElementsCache.get(idForEach)?.title as HTMLElement;
+                        const hasForEach = hasLightElement.get(idForEach);
+
+                        if (idForEach === id) {
+                            hasLightElement.set(idForEach, 'accentuated');
+                            applyAccentuatedLight(elVectorForEach, elTitleForEach);
+                        } else {
+                            if (hasForEach === 'activeAndHover' || hasForEach === 'noActiveAndHover') {
+                                hasLightElement.set(idForEach, 'noActiveAndHover');
+                                elVectorForEach.setAttribute('stroke-width', '8');
+                                elVectorForEach.setAttribute('stroke-color', '#151515');
+                                elTitleForEach.setAttribute('opacity', '1');
+                                elVectorForEach.setAttribute('opacity', '1');
+                            } else {
+                                hasLightElement.set(idForEach, 'noActive');
+                                elVectorForEach.setAttribute('stroke-width', '2');
+                                elVectorForEach.setAttribute('stroke-color', '#3B3C48');
+                                elTitleForEach.setAttribute('opacity', '0.5');
+                                elVectorForEach.setAttribute('opacity', '0.5');
+                            }
+                        }
                     }
                 }
             }
-        })
+        }
 
-        element.addEventListener('mouseover', () => hoverLight(elementVector, elementTitle, hasLightElement, id))
-
-        element.addEventListener('mouseout', () => hoverLight(elementVector, elementTitle, hasLightElement, id))
+        if (isTouch) {
+            element.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                touchOrClick();
+            }, { passive: false });
+        } else {
+            element.addEventListener('click', touchOrClick);
+            element.addEventListener('mouseover', () => hoverLight(elementVector, elementTitle, hasLightElement, id))
+            element.addEventListener('mouseout', () => hoverLight(elementVector, elementTitle, hasLightElement, id))
+        }
     }
 }
 
@@ -236,23 +320,38 @@ function changeTheme() {
             app.classList.add('light-app');
             document.documentElement.style.setProperty('--main-color-elements', '#FFFFFF');
             document.documentElement.style.setProperty('--main-color-inside', '#3B3C48');
-            //добавить смену цвета названия и рамки профессии в светлой теме
         }
     }
 }
+
 function changePosition(el: HTMLElement, position: string | null) {
+    const isMobile = window.innerWidth < 900;
+
     switch (position) {
         case 'left':
-            el.style.left = "15svmin";
+            if (isMobile) {
+                el.style.left = "32px";
+            } else {
+                el.style.left = "15svmin";
+            }
             break;
         case 'right':
-            el.style.right = "15svmin";
+            if (isMobile) {
+                el.style.right = "32px";
+            } else {
+                el.style.right = "15svmin";
+            }
             break;
         case 'center-right':
-            el.style.right = "48svmin";
+            if (isMobile) {
+                el.style.right = "32px";
+            } else {
+                el.style.right = "48svmin";
+            }
             break;
     }
 }
+
 function openModal(id: string): HTMLElement{
     if (data[id] && data[id].jobDescription != null) {
         const templateElement = document.getElementById("position-modal") as HTMLTemplateElement | null;
