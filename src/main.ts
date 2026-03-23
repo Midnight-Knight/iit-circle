@@ -1,9 +1,25 @@
 import data from "./data.ts";
 import {Modal, ModalJob} from "./Modal.ts";
+import {animate} from "motion";
 
 const app = document.querySelector("#app");
 
 const elementsDark = Array.from(document.querySelector('#frontend_circle-dark-theme')!.children);
+
+function changePositionCircle(scale: number | null | undefined = 1.0 ,x: string | null | undefined = '0%', y: string | null | undefined = '0%')
+{
+    console.log(app)
+    if (app)
+    {
+        const circleLight = app.querySelector('.light-circle')?.firstElementChild;
+        const circleDark = app.querySelector('.dark-circle')?.firstElementChild;
+
+        console.log(circleLight);
+        console.log(circleDark);
+
+        animate([circleLight, circleDark], { scale, x, y }, { duration: 0.3 });
+    }
+}
 
 for (const element of elementsDark) {
     if(element.id.includes('hit-dark')) {
@@ -12,12 +28,12 @@ for (const element of elementsDark) {
 
         //console.log(id, elementVector!.id);
         element.addEventListener('click', () => {
-            const modal: HTMLElement = openModal(id);
-            const existingModal = app.querySelector('.modal');{
-                if (existingModal) {
-                    existingModal.remove();
-                }
-                app.appendChild(modal);
+            if (app)
+            {
+                changePositionCircle(data[id].animationScale, data[id].positionAnimX, data[id].positionAnimY)
+                const existingModal = app.querySelector('.modal');
+                if (existingModal) existingModal.remove();
+                app.appendChild(openModal(id));
             }
         })
 
@@ -44,12 +60,12 @@ for (const element of elementsLight) {
         //console.log(elementVector!.id);
 
         element.addEventListener('click', () => {
-            const modal: HTMLElement = openModal(id);
-            const existingModal = app.querySelector('.modal');{
-                if (existingModal) {
-                    existingModal.remove();
-                }
-                app.appendChild(modal);
+            if (app)
+            {
+                changePositionCircle(data[id].animationScale, data[id].positionAnimX, data[id].positionAnimY)
+                const existingModal = app.querySelector('.modal');
+                if (existingModal) existingModal.remove();
+                app.appendChild(openModal(id));
             }
         })
 
