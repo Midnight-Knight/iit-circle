@@ -36,9 +36,11 @@ for (const element of elementsDark) {
             if (app)
             {
                 changePositionCircle(data[id].animationScale, data[id].positionAnimX, data[id].positionAnimY)
-                const existingModal = app.querySelector('.modal');
+                const existingModal = app.querySelector('.modal') as HTMLElement;
+                const modal = openModal(id);
                 if (existingModal) existingModal.remove();
-                app.appendChild(openModal(id));
+                app.appendChild(modal);
+                animateModalIn(modal);
             }
         })
 
@@ -68,9 +70,10 @@ for (const element of elementsLight) {
             if (app)
             {
                 changePositionCircle(data[id].animationScale, data[id].positionAnimX, data[id].positionAnimY)
-                const existingModal = app.querySelector('.modal');
+                const existingModal = app.querySelector('.modal') as HTMLElement;
+                const modal = openModal(id);
                 if (existingModal) existingModal.remove();
-                app.appendChild(openModal(id));
+                app.appendChild(modal);
             }
         })
 
@@ -135,7 +138,8 @@ function changeTheme() {
         }
     }
 }
-function changePosition(el: HTMLElement, position: string | null) {
+function changePosition(el: HTMLElement, modalObject: Modal) {
+    const position = modalObject.getPosition();
     switch (position) {
         case 'left':
             el.style.left = "15svmin";
@@ -148,6 +152,19 @@ function changePosition(el: HTMLElement, position: string | null) {
             break;
     }
 }
+function changeColor(modalObject: Modal) {
+    const color: string | null = modalObject.getJobColor();
+    if (color == null) {
+        document.documentElement.style.setProperty('--job-color', 'var(--main-color-inside)');
+    }
+    else {
+        document.documentElement.style.setProperty('--job-color', color);
+    }
+}
+function animateModalIn(element: HTMLElement) {
+    animate(element, { opacity: 1 },{duration: 0.5});
+}
+
 function openModal(id: string): HTMLElement{
     if (data[id] && data[id].jobDescription != null) {
         const templateElement = document.getElementById("position-modal") as HTMLTemplateElement | null;
@@ -155,15 +172,8 @@ function openModal(id: string): HTMLElement{
         const cloneElement = templateElement.content.cloneNode(true) as HTMLElement;
         const modalElement = cloneElement.firstElementChild as HTMLElement;
         const modalObject = new ModalJob(modalElement, data, id);
-        const color: string | null = modalObject.getJobColor();
-        const position = modalObject.getPosition();
-        changePosition(modalElement,position);
-        if (color == null) {
-            document.documentElement.style.setProperty('--job-color', 'var(--main-color-inside)');
-        }
-        else {
-            document.documentElement.style.setProperty('--job-color', color);
-        }
+        changeColor(modalObject);
+        changePosition(modalElement,modalObject);
         return modalElement as HTMLElement;
     }
     else{
@@ -172,8 +182,7 @@ function openModal(id: string): HTMLElement{
         const cloneElement = templateElement.content.cloneNode(true) as HTMLElement;
         const modalElement = cloneElement.firstElementChild as HTMLElement;
         const modalObject = new Modal(modalElement, data, id);
-        const position = modalObject.getPosition();
-        changePosition(modalElement,position);
+        changePosition(modalElement,modalObject);
         return modalElement as HTMLElement;
     }
 }
