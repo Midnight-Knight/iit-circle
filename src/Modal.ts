@@ -1,10 +1,6 @@
 import type {dataObjectType, dataType} from "./data.ts";
-<<<<<<< HEAD
 import {changePositionCircle, resetAllElements} from "./main.ts";
-=======
-import {changePositionCircle} from "./main.ts";
 import {animate} from "motion";
->>>>>>> feature-modal
 
 export class Modal{
     protected sectorTitle: HTMLElement;
@@ -62,15 +58,11 @@ export class Modal{
             }
             this.closeButton.addEventListener('click', () => {
                 animateModalOut(modal);
-                changePositionCircle();
-<<<<<<< HEAD
                 resetAllElements();
-                modal.remove();
-=======
+                changePositionCircle();
                 setTimeout(()=>{
                     modal.remove();
                 }, 500);
->>>>>>> feature-modal
             });
         }
     }

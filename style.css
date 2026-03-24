@@ -105,6 +105,7 @@ body {
       gap: 1svmin;
       border: var(--main-color-inside) 2px solid;
       border-radius:2svmin;
+      text-align: justify-all;
       > .sector-description {
         font-family: 'Neue-Light';
       }
@@ -132,6 +133,7 @@ body {
       border-radius: 2svmin;
       padding: 2svmin 2svmin;
       min-height: 0;
+      text-align: justify-all;
       > .skills {
         display: flex;
         flex-direction: column;

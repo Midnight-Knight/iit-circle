@@ -62,21 +62,11 @@ export function changePositionCircle(scale: number | null | undefined = 1.0 , x:
          */
 
         animate([circleLight, circleDark], { x, y }, {
-            type: 'spring',
-            stiffness: 60,
-            damping: 20,
-            mass: 1.5,
-            restDelta: 0.01,
-            restSpeed: 0.01
+            duration: 0,
         });
 
         animate([circleLight, circleDark], { scale }, {
-            type: 'spring',
-            stiffness: 60,
-            damping: 20,
-            mass: 1.5,
-            restDelta: 0.01,
-            restSpeed: 0.01
+            duration: 0
         });
 
         const buttons = Array.from(document.querySelectorAll<HTMLElement>('.button-theme-light, .button-theme-dark'));
@@ -218,8 +208,10 @@ for (const element of elementsDark) {
             if (app) {
                 changePositionCircle(data[id].animationScale, data[id].positionAnimX, data[id].positionAnimY);
                 const existingModal = app.querySelector('.modal');
+                const modal = openModal(id);
                 if (existingModal) existingModal.remove();
-                app.appendChild(openModal(id));
+                app.appendChild(modal);
+                animateModalIn(modal);
 
                 for (const el of elementsDark) {
                     if (el.id.includes('hit-dark')) {
@@ -275,8 +267,10 @@ for (const element of elementsLight) {
             if (app) {
                 changePositionCircle(data[id].animationScale, data[id].positionAnimX, data[id].positionAnimY);
                 const existingModal = app.querySelector('.modal');
+                const modal = openModal(id);
                 if (existingModal) existingModal.remove();
-                app.appendChild(openModal(id));
+                app.appendChild(modal);
+                animateModalIn(modal);
 
                 for (const el of elementsLight) {
                     if (el.id.includes('hit-light')) {
@@ -405,7 +399,7 @@ function changePosition(el: HTMLElement, modalObject: Modal) {
             break;
     }
 }
-function changeColor(modalObject: Modal) {
+function changeColor(modalObject: ModalJob) {
     const color: string | null = modalObject.getJobColor();
     if (color == null) {
         document.documentElement.style.setProperty('--job-color', 'var(--main-color-inside)');
@@ -414,6 +408,8 @@ function changeColor(modalObject: Modal) {
         document.documentElement.style.setProperty('--job-color', color);
     }
 }
+
+
 function animateModalIn(element: HTMLElement) {
     animate(element, { opacity: 1 },{duration: 0.5});
 }
