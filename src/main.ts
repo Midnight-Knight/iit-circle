@@ -373,13 +373,14 @@ function changeTheme() {
             app.classList.add('light-app');
             document.documentElement.style.setProperty('--main-color-elements', '#FFFFFF');
             document.documentElement.style.setProperty('--main-color-inside', '#3B3C48');
+            //добавить смену цвета названия и рамки профессии в светлой теме
         }
     }
 }
 
-function changePosition(el: HTMLElement, position: string | null) {
+function changePosition(el: HTMLElement, modalObject: Modal) {
+    const position = modalObject.getPosition();
     const isMobile = window.innerWidth < 900;
-
     switch (position) {
         case 'left':
             if (isMobile) {
@@ -404,6 +405,18 @@ function changePosition(el: HTMLElement, position: string | null) {
             break;
     }
 }
+function changeColor(modalObject: Modal) {
+    const color: string | null = modalObject.getJobColor();
+    if (color == null) {
+        document.documentElement.style.setProperty('--job-color', 'var(--main-color-inside)');
+    }
+    else {
+        document.documentElement.style.setProperty('--job-color', color);
+    }
+}
+function animateModalIn(element: HTMLElement) {
+    animate(element, { opacity: 1 },{duration: 0.5});
+}
 
 function openModal(id: string): HTMLElement{
     if (data[id] && data[id].jobDescription != null) {
@@ -412,15 +425,8 @@ function openModal(id: string): HTMLElement{
         const cloneElement = templateElement.content.cloneNode(true) as HTMLElement;
         const modalElement = cloneElement.firstElementChild as HTMLElement;
         const modalObject = new ModalJob(modalElement, data, id);
-        const color: string | null = modalObject.getJobColor();
-        const position = modalObject.getPosition();
-        changePosition(modalElement,position);
-        if (color == null) {
-            document.documentElement.style.setProperty('--job-color', 'var(--main-color-inside)');
-        }
-        else {
-            document.documentElement.style.setProperty('--job-color', color);
-        }
+        changeColor(modalObject);
+        changePosition(modalElement,modalObject);
         return modalElement as HTMLElement;
     }
     else{
@@ -429,8 +435,7 @@ function openModal(id: string): HTMLElement{
         const cloneElement = templateElement.content.cloneNode(true) as HTMLElement;
         const modalElement = cloneElement.firstElementChild as HTMLElement;
         const modalObject = new Modal(modalElement, data, id);
-        const position = modalObject.getPosition();
-        changePosition(modalElement,position);
+        changePosition(modalElement,modalObject);
         return modalElement as HTMLElement;
     }
 }

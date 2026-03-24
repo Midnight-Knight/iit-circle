@@ -1,5 +1,10 @@
 import type {dataObjectType, dataType} from "./data.ts";
+<<<<<<< HEAD
 import {changePositionCircle, resetAllElements} from "./main.ts";
+=======
+import {changePositionCircle} from "./main.ts";
+import {animate} from "motion";
+>>>>>>> feature-modal
 
 export class Modal{
     protected sectorTitle: HTMLElement;
@@ -56,9 +61,16 @@ export class Modal{
                 })
             }
             this.closeButton.addEventListener('click', () => {
+                animateModalOut(modal);
                 changePositionCircle();
+<<<<<<< HEAD
                 resetAllElements();
                 modal.remove();
+=======
+                setTimeout(()=>{
+                    modal.remove();
+                }, 500);
+>>>>>>> feature-modal
             });
         }
     }
@@ -105,4 +117,8 @@ export class ModalJob extends Modal {
     public getJobColor(): string | null {
         return this.jobColor;
     }
+}
+
+function animateModalOut(element: HTMLElement) {
+    animate(element, {opacity: 0}, {duration: 0.5});
 }

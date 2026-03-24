@@ -60,6 +60,7 @@ body {
   flex-direction: column;
   position: absolute;
   z-index: 10;
+  top: 10svmin;
   width: 55svmin;
   max-height: 85svmin;
   border: var(--main-color-inside) 2px solid;
@@ -68,6 +69,7 @@ body {
   gap: 2svmin;
   font-size: 0.8rem;
   font-family: 'Neue-Bold';
+  opacity: 0;
   >.modal__close-button{
     width: 4svmin;
     height: 4svmin;
