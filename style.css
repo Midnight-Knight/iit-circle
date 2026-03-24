@@ -89,7 +89,7 @@ body {
   > .sector{
     display: flex;
     flex-direction: column;
-    gap: 2svmin;
+    gap: 16px;
     color: var(--main-color-inside);
     flex-shrink: 0;
     > .sector-title {
@@ -245,7 +245,6 @@ body {
 }
 
 .active {
-  opacity: 1;
   z-index: 2;
 }
 

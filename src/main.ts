@@ -43,10 +43,25 @@ export function changePositionCircle(scale: number | null | undefined = 1.0 , x:
         const circleLight = app.querySelector('.light-circle')?.firstElementChild;
         const circleDark = app.querySelector('.dark-circle')?.firstElementChild;
 
-        animate([circleLight, circleDark], { x, y }, isTouch ? {
+        /*
+        {
             duration: 0.3,
             ease: 'linear',
-        } : {
+        }
+        {
+            duration: 0,
+        }
+        {
+            type: 'spring',
+            stiffness: 60,
+            damping: 20,
+            mass: 1.5,
+            restDelta: 0.01,
+            restSpeed: 0.01
+        }
+         */
+
+        animate([circleLight, circleDark], { x, y }, {
             type: 'spring',
             stiffness: 60,
             damping: 20,
@@ -55,10 +70,7 @@ export function changePositionCircle(scale: number | null | undefined = 1.0 , x:
             restSpeed: 0.01
         });
 
-        animate([circleLight, circleDark], { scale }, isTouch ? {
-            duration: 0.3,
-            ease: 'linear',
-        } : {
+        animate([circleLight, circleDark], { scale }, {
             type: 'spring',
             stiffness: 60,
             damping: 20,
@@ -66,6 +78,24 @@ export function changePositionCircle(scale: number | null | undefined = 1.0 , x:
             restDelta: 0.01,
             restSpeed: 0.01
         });
+
+        const buttons = Array.from(document.querySelectorAll<HTMLElement>('.button-theme-light, .button-theme-dark'));
+        const isDefault = scale === 1.0 && x === '0%' && y === '0%';
+
+        if (isDefault) {
+            buttons.forEach(btn => btn.style.display = '');
+            animate(buttons,
+                { opacity: 1 },
+                { duration: 0.3, ease: 'easeOut' }
+            );
+        } else {
+            animate(buttons,
+                { opacity: 0 },
+                { duration: 0.3, ease: 'easeIn' }
+            ).then(() => {
+                buttons.forEach(btn => btn.style.display = 'none');
+            });
+        }
     }
 }
 
@@ -305,14 +335,18 @@ function buttonDarkChangeTheme() {
 
 function changeTheme() {
     if (theme === 'dark') {
-        const circleActive = document.querySelector('.dark-circle');
-        const circleDisabled = document.querySelector('.light-circle');
+        const circleActive = document.querySelector<HTMLElement>('.dark-circle');
+        const circleDisabled = document.querySelector<HTMLElement>('.light-circle');
         const buttonActive = document.querySelector('.button-theme-dark');
         const buttonDisabled = document.querySelector('.button-theme-light');
         const app = document.querySelector('#app');
         if (circleActive && circleDisabled && buttonActive && buttonDisabled && app) {
             circleActive.classList.add('active');
             circleDisabled.classList.remove('active');
+            circleActive.style.display = 'flex';
+            animate(circleActive, { opacity: 1 }, { duration: 0.3, ease: 'easeOut' });
+            animate(circleDisabled, { opacity: 0 }, { duration: 0.3, ease: 'easeIn' })
+                .then(() => { circleDisabled.style.display = 'none'; });
             buttonActive.classList.add('active-button');
             buttonDisabled.classList.remove('active-button');
             app.classList.remove('light-app');
@@ -321,14 +355,18 @@ function changeTheme() {
             document.documentElement.style.setProperty('--main-color-inside', '#E6E6E6');
         }
     } else {
-        const circleActive = document.querySelector('.light-circle');
-        const circleDisabled = document.querySelector('.dark-circle');
+        const circleActive = document.querySelector<HTMLElement>('.light-circle');
+        const circleDisabled = document.querySelector<HTMLElement>('.dark-circle');
         const buttonActive = document.querySelector('.button-theme-light');
         const buttonDisabled = document.querySelector('.button-theme-dark');
         const app = document.querySelector('#app');
         if (circleActive && circleDisabled && buttonActive && buttonDisabled && app) {
             circleActive.classList.add('active');
             circleDisabled.classList.remove('active');
+            circleActive.style.display = 'flex';
+            animate(circleActive, { opacity: 1 }, { duration: 0.3, ease: 'easeOut' });
+            animate(circleDisabled, { opacity: 0 }, { duration: 0.3, ease: 'easeIn' })
+                .then(() => { circleDisabled.style.display = 'none'; });
             buttonActive.classList.add('active-button');
             buttonDisabled.classList.remove('active-button');
             app.classList.remove('dark-app');
