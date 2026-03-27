@@ -55,9 +55,15 @@ body {
 
 .modal{
   background-color: var(--main-color-elements);
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto auto auto 1fr;
+  grid-template-areas: "stub close_button"
+  "sector sector"
+  "job job"
+  "direction-profiles direction-profiles"
+  "additional-information-specialization additional-information-specialization"
+  "additional-information-position additional-information-position";
   position: absolute;
   z-index: 10;
   top: 10svmin;
@@ -70,7 +76,16 @@ body {
   font-size: 0.8rem;
   font-family: 'Neue-Bold';
   opacity: 0;
+  @media (max-width: 1334px) {
+    width: 30svw;
+    top: 16px;
+    max-height: calc(100svh - 32px);
+  }
+  >.stub {
+    width: 100%;
+  }
   >.modal__close-button{
+    grid-area: close_button;
     width: 4svmin;
     height: 4svmin;
     all: unset;
@@ -89,6 +104,7 @@ body {
     }
   }
   > .sector{
+    grid-area: sector;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -105,7 +121,10 @@ body {
       gap: 1svmin;
       border: var(--main-color-inside) 2px solid;
       border-radius:2svmin;
-      text-align: justify-all;
+      text-align: justify;
+      @media (max-width: 1334px) {
+        gap: 16px;
+      }
       > .sector-description {
         font-family: 'Neue-Light';
       }
@@ -115,6 +134,7 @@ body {
     }
   }
   > .job{
+    grid-area: job;
     display: flex;
     flex-direction: column;
     gap: 1svmin;
@@ -133,7 +153,10 @@ body {
       border-radius: 2svmin;
       padding: 2svmin 2svmin;
       min-height: 0;
-      text-align: justify-all;
+      text-align: justify;
+      @media (max-width: 1334px) {
+        gap: 16px;
+      }
       > .skills {
         display: flex;
         flex-direction: column;
@@ -152,6 +175,7 @@ body {
     }
   }
   > .direction-profiles{
+    grid-area: direction-profiles;
     display: flex;
     flex-direction: column;
     gap: 1svmin;
@@ -165,6 +189,7 @@ body {
     }
   }
   > .additional-information-specialization {
+    grid-area: additional-information-specialization;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -182,6 +207,7 @@ body {
     }
   }
   >.additional-information-position {
+    grid-area: additional-information-position;
     font-family: 'Neue-Light';
     display: flex;
     flex-direction: row;
@@ -234,6 +260,7 @@ body {
   > svg {
     width: 95svmin;
     height: 95svmin;
+    overflow: visible;
     > rect {
       fill: rgba(0, 0, 0, 0);
     }

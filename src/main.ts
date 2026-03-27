@@ -3,6 +3,7 @@ import {Modal, ModalJob} from "./Modal.ts";
 import {animate} from "motion";
 
 const isTouch = window.matchMedia('(hover: none)').matches;
+const isTablet = window.innerWidth < 1335;
 const app = document.querySelector("#app");
 
 const elementsDark = Array.from(document.querySelector('#frontend_circle-dark-theme')!.children);
@@ -45,10 +46,6 @@ export function changePositionCircle(scale: number | null | undefined = 1.0 , x:
 
         /*
         {
-            duration: 0.3,
-            ease: 'linear',
-        }
-        {
             duration: 0,
         }
         {
@@ -62,11 +59,21 @@ export function changePositionCircle(scale: number | null | undefined = 1.0 , x:
          */
 
         animate([circleLight, circleDark], { x, y }, {
-            duration: 0,
+            type: 'spring',
+            stiffness: 60,
+            damping: 20,
+            mass: 1.5,
+            restDelta: 0.01,
+            restSpeed: 0.01
         });
 
         animate([circleLight, circleDark], { scale }, {
-            duration: 0
+            type: 'spring',
+            stiffness: 60,
+            damping: 20,
+            mass: 1.5,
+            restDelta: 0.01,
+            restSpeed: 0.01
         });
 
         const buttons = Array.from(document.querySelectorAll<HTMLElement>('.button-theme-light, .button-theme-dark'));
@@ -374,25 +381,24 @@ function changeTheme() {
 
 function changePosition(el: HTMLElement, modalObject: Modal) {
     const position = modalObject.getPosition();
-    const isMobile = window.innerWidth < 900;
     switch (position) {
         case 'left':
-            if (isMobile) {
+            if (isTablet) {
                 el.style.left = "32px";
             } else {
                 el.style.left = "15svmin";
             }
             break;
         case 'right':
-            if (isMobile) {
+            if (isTablet) {
                 el.style.right = "32px";
             } else {
                 el.style.right = "15svmin";
             }
             break;
         case 'center-right':
-            if (isMobile) {
-                el.style.right = "32px";
+            if (isTablet) {
+                el.style.right = "20svw";
             } else {
                 el.style.right = "48svmin";
             }

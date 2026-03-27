@@ -30,7 +30,7 @@ export class Modal{
                 pDesc.textContent = description;
                 this.sectorDescription.appendChild(pDesc);
             })
-            if (this.sectorData.url != null) {
+            if (this.sectorData.url !== null) {
                 this.qrImage.src = this.sectorData.url;
                 this.qrImage.hidden = false;
             }
@@ -48,7 +48,7 @@ export class Modal{
                     this.directionTitle.textContent = "Направление: " + directionsList[0];
                 }
             }
-            if (profilesList != null) {
+            if (profilesList !== null) {
                 this.profilesTitle.hidden = false;
                 profilesList.forEach(profile => {
                     let liElement = document.createElement("li");
@@ -99,11 +99,13 @@ export class ModalJob extends Modal {
                     ${items.slice(1).map(item => `<li>${(item)}</li>`).join('')}
                 </ul>` ;
         }
-        if (this.sectorData.jobColor != null) {
+        if (this.sectorData.jobColor !== null) {
             this.jobColor = this.sectorData.jobColor;
         }
-        if (this.sectorData.vacancies != null) {
+        if (this.sectorData.vacancies !== null) {
             this.vacancies.href = this.sectorData.vacancies;
+        } else {
+            this.vacancies.style.display = 'none';
         }
     }
     public getJobColor(): string | null {

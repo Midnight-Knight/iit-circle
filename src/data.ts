@@ -50,7 +50,7 @@ const data: dataType = {
         "jobColorOutline": null,
         "positionAnimX": "-65%",
         "positionAnimY": "-13%",
-        "animationScale": 1.30,
+        "animationScale": 1.3,
         "positionSide": "right",
         "directions": [
             "09.03.01"
@@ -1063,34 +1063,6 @@ const data: dataType = {
         "sectorDescription": [
             "Проектирование и эксплуатация технической основы любой организации: серверы, системы хранения данных, платформы виртуализации, сети. Специалисты обеспечивают надёжную, масштабируемую и управляемую среду для работы всех цифровых сервисов."
         ],
-        "jobTitle": "Инженер программист ПЛИС",
-        "jobDescription": [
-            "Разрабатывает и программирует программируемые логические интегральные схемы, реализует аппаратные решения для специализированных вычислительных задач.",
-            "Требуется:\n— Знание языков описания аппаратуры (VHDL, Verilog)\n— Понимание цифровой схемотехники и архитектуры ПЛИС\n— Навыки работы с инструментами проектирования ПЛИС\n— Понимание низкоуровневого программирования\n— Умение оптимизировать аппаратные решения"
-        ],
-        "jobColor": "#8DB3FF",
-        "jobColorOutline": null,
-        "positionAnimX": "-75%",
-        "positionAnimY": "-55%",
-        "animationScale": 2.2,
-        "positionSide": "right",
-        "directions": [
-            "09.03.01",
-            "09.03.04"
-        ],
-        "profiles": [
-            "Инфраструктура информационных технологий",
-            "Квантовые коммуникации и вычисления",
-            "Информационные технологии в атомной отрасли"
-        ],
-        "vacancies": null,
-        "url": null
-    },
-    "infrastructure-3-3": {
-        "sectorTitle": "ИТ Инфраструктура",
-        "sectorDescription": [
-            "Проектирование и эксплуатация технической основы любой организации: серверы, системы хранения данных, платформы виртуализации, сети. Специалисты обеспечивают надёжную, масштабируемую и управляемую среду для работы всех цифровых сервисов."
-        ],
         "jobTitle": "Руководитель группы ИТ Инфраструктуры",
         "jobDescription": [
             "Координирует работу группы инженеров, распределяет задачи, следит за качеством и сроками, выстраивает процессы внутри команды и является связующим звеном между командой и руководством.",
@@ -1334,6 +1306,102 @@ const data: dataType = {
         "vacancies": null,
         "url": null
     },
+    "iot": {
+        "sectorTitle": "",
+        "sectorDescription": [],
+        "jobTitle": null,
+        "jobDescription": null,
+        "jobColor": null,
+        "jobColorOutline": null,
+        "positionAnimX": null,
+        "positionAnimY": null,
+        "animationScale": null,
+        "positionSide": null,
+        "directions": null,
+        "profiles": null,
+        "vacancies": null,
+        "url": null
+    },
+    "iot-1-1": {
+        "sectorTitle": "",
+        "sectorDescription": [],
+        "jobTitle": null,
+        "jobDescription": null,
+        "jobColor": null,
+        "jobColorOutline": null,
+        "positionAnimX": null,
+        "positionAnimY": null,
+        "animationScale": null,
+        "positionSide": null,
+        "directions": null,
+        "profiles": null,
+        "vacancies": null,
+        "url": null
+    },
+    "iot-2-1": {
+        "sectorTitle": "",
+        "sectorDescription": [],
+        "jobTitle": null,
+        "jobDescription": null,
+        "jobColor": null,
+        "jobColorOutline": null,
+        "positionAnimX": null,
+        "positionAnimY": null,
+        "animationScale": null,
+        "positionSide": null,
+        "directions": null,
+        "profiles": null,
+        "vacancies": null,
+        "url": null
+    },
+    "iot-2-2": {
+        "sectorTitle": "",
+        "sectorDescription": [],
+        "jobTitle": null,
+        "jobDescription": null,
+        "jobColor": null,
+        "jobColorOutline": null,
+        "positionAnimX": null,
+        "positionAnimY": null,
+        "animationScale": null,
+        "positionSide": null,
+        "directions": null,
+        "profiles": null,
+        "vacancies": null,
+        "url": null
+    },
+    "iot-3-1": {
+        "sectorTitle": "",
+        "sectorDescription": [],
+        "jobTitle": null,
+        "jobDescription": null,
+        "jobColor": null,
+        "jobColorOutline": null,
+        "positionAnimX": null,
+        "positionAnimY": null,
+        "animationScale": null,
+        "positionSide": null,
+        "directions": null,
+        "profiles": null,
+        "vacancies": null,
+        "url": null
+    },
+    "iot-4-1": {
+        "sectorTitle": "",
+        "sectorDescription": [],
+        "jobTitle": null,
+        "jobDescription": null,
+        "jobColor": null,
+        "jobColorOutline": null,
+        "positionAnimX": null,
+        "positionAnimY": null,
+        "animationScale": null,
+        "positionSide": null,
+        "directions": null,
+        "profiles": null,
+        "vacancies": null,
+        "url": null
+    },
     "management": {
         "sectorTitle": "Управление проектами",
         "sectorDescription": [
@@ -1456,6 +1524,22 @@ const data: dataType = {
             "Цифровая трансформация",
             "Информатизация организаций"
         ],
+        "vacancies": null,
+        "url": null
+    },
+    "management-3-2": {
+        "sectorTitle": "",
+        "sectorDescription": [],
+        "jobTitle": null,
+        "jobDescription": null,
+        "jobColor": null,
+        "jobColorOutline": null,
+        "positionAnimX": null,
+        "positionAnimY": null,
+        "animationScale": null,
+        "positionSide": null,
+        "directions": null,
+        "profiles": null,
         "vacancies": null,
         "url": null
     },
