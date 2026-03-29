@@ -113,6 +113,6 @@ export class ModalJob extends Modal {
     }
 }
 
-function animateModalOut(element: HTMLElement) {
+export function animateModalOut(element: HTMLElement) {
     animate(element, {opacity: 0}, {duration: 0.5});
 }

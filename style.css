@@ -52,7 +52,26 @@ body {
   position: relative;
   z-index: 1;
 }
-
+.small-modal{
+  display: grid;
+  position: absolute;
+  grid-template-columns: 1fr auto;
+  z-index: 10;
+  background-color: var(--main-color-elements);
+  border: var(--main-color-inside) 1px solid;
+  border-radius:1svmin;
+  padding: 2svmin;
+  top: calc(6svmin + 64px);
+  left: 5svmin;
+  >p{
+    font-size: 0.8rem;
+    font-family: 'Neue-Light';
+    color: var(--main-color-inside);
+  }
+  >input{
+    margin-left: 1svmin;
+  }
+}
 .modal{
   background-color: var(--main-color-elements);
   display: grid;
@@ -279,12 +298,9 @@ body {
   z-index: 2;
 }
 
-.button-theme-dark, .button-theme-light {
-  width: 64px;
+.button-theme-dark, .button-theme-light, .button-settings-dark, .button-settings-light {
   aspect-ratio: 1 / 1;
   position: absolute;
-  bottom: 5dvmin;
-  right: 5dvmin;
   z-index: 1;
   display: flex;
   align-items: center;
@@ -300,6 +316,17 @@ body {
     aspect-ratio: 1 / 1;
     cursor: pointer;
   }
+}
+.button-theme-dark, .button-theme-light{
+  width: 64px;
+  bottom: 5dvmin;
+  right: 5dvmin;
+}
+
+.button-settings-dark, .button-settings-light {
+  width: 64px;
+  top: 5dvmin;
+  left: 5dvmin;
 }
 
 .active-button {

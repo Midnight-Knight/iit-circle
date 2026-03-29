@@ -5,6 +5,7 @@ import {animate} from "motion";
 const isTouch = window.matchMedia('(hover: none)').matches;
 const isTablet = window.innerWidth < 1335;
 const app = document.querySelector("#app");
+const settingsModal = document.querySelector('.small-modal') as HTMLElement;
 
 const elementsDark = Array.from(document.querySelector('#frontend_circle-dark-theme')!.children);
 const elementsLight = Array.from(document.querySelector('#frontend_circle-light-theme')!.children);
@@ -13,6 +14,7 @@ const darkElementsCache = new Map<string, { vector: HTMLElement, title: HTMLElem
 const lightElementsCache = new Map<string, { vector: HTMLElement, title: HTMLElement }>();
 
 type ElementState = 'active' | 'activeAndHover' | 'noActive' | 'noActiveAndHover' | 'accentuated';
+const animateCheck = settingsModal.querySelector('.animation-check');
 
 const hasDarkElement = new Map<string, ElementState>();
 const hasLightElement = new Map<string, ElementState>();
@@ -57,26 +59,36 @@ export function changePositionCircle(scale: number | null | undefined = 1.0 , x:
             restSpeed: 0.01
         }
          */
+        if (animateCheck.checked){
+            animate([circleLight, circleDark], { x, y }, {
+                type: 'spring',
+                stiffness: 60,
+                damping: 20,
+                mass: 1.5,
+                restDelta: 0.01,
+                restSpeed: 0.01
+            });
 
-        animate([circleLight, circleDark], { x, y }, {
-            type: 'spring',
-            stiffness: 60,
-            damping: 20,
-            mass: 1.5,
-            restDelta: 0.01,
-            restSpeed: 0.01
-        });
+            animate([circleLight, circleDark], { scale }, {
+                type: 'spring',
+                stiffness: 60,
+                damping: 20,
+                mass: 1.5,
+                restDelta: 0.01,
+                restSpeed: 0.01
+            });
+        }
+        else {
+            animate([circleLight, circleDark], { x, y }, {
+                duration: 0
+            });
 
-        animate([circleLight, circleDark], { scale }, {
-            type: 'spring',
-            stiffness: 60,
-            damping: 20,
-            mass: 1.5,
-            restDelta: 0.01,
-            restSpeed: 0.01
-        });
+            animate([circleLight, circleDark], { scale }, {
+                duration: 0
+            });
+        }
 
-        const buttons = Array.from(document.querySelectorAll<HTMLElement>('.button-theme-light, .button-theme-dark'));
+        const buttons = Array.from(document.querySelectorAll<HTMLElement>('.button-theme-light, .button-theme-dark, .button-settings-dark, .button-settings-light'));
         const isDefault = scale === 1.0 && x === '0%' && y === '0%';
 
         if (isDefault) {
@@ -340,6 +352,8 @@ function changeTheme() {
         const circleDisabled = document.querySelector<HTMLElement>('.light-circle');
         const buttonActive = document.querySelector('.button-theme-dark');
         const buttonDisabled = document.querySelector('.button-theme-light');
+        const buttonSettingsAct = document.querySelector('.button-settings-dark');
+        const buttonSettingsDis = document.querySelector('.button-settings-light');
         const app = document.querySelector('#app');
         if (circleActive && circleDisabled && buttonActive && buttonDisabled && app) {
             circleActive.classList.add('active');
@@ -349,7 +363,9 @@ function changeTheme() {
             animate(circleDisabled, { opacity: 0 }, { duration: 0.3, ease: 'easeIn' })
                 .then(() => { circleDisabled.style.display = 'none'; });
             buttonActive.classList.add('active-button');
+            buttonSettingsAct.classList.add('active-button');
             buttonDisabled.classList.remove('active-button');
+            buttonSettingsDis.classList.remove('active-button');
             app.classList.remove('light-app');
             app.classList.add('dark-app');
             document.documentElement.style.setProperty('--main-color-elements', '#151515');
@@ -360,6 +376,8 @@ function changeTheme() {
         const circleDisabled = document.querySelector<HTMLElement>('.dark-circle');
         const buttonActive = document.querySelector('.button-theme-light');
         const buttonDisabled = document.querySelector('.button-theme-dark');
+        const buttonSettingsAct = document.querySelector('.button-settings-light');
+        const buttonSettingsDis = document.querySelector('.button-settings-dark');
         const app = document.querySelector('#app');
         if (circleActive && circleDisabled && buttonActive && buttonDisabled && app) {
             circleActive.classList.add('active');
@@ -369,7 +387,9 @@ function changeTheme() {
             animate(circleDisabled, { opacity: 0 }, { duration: 0.3, ease: 'easeIn' })
                 .then(() => { circleDisabled.style.display = 'none'; });
             buttonActive.classList.add('active-button');
+            buttonSettingsAct.classList.add('active-button');
             buttonDisabled.classList.remove('active-button');
+            buttonSettingsDis.classList.remove('active-button');
             app.classList.remove('dark-app');
             app.classList.add('light-app');
             document.documentElement.style.setProperty('--main-color-elements', '#FFFFFF');
@@ -448,4 +468,23 @@ if (buttonDark && buttonLight) {
     buttonDark.addEventListener('click', buttonDarkChangeTheme);
     buttonLight.addEventListener('click', buttonLightChangeTheme);
 }
+const settingsDark = document.querySelector('.button-settings-dark');
+const settingsLight = document.querySelector('.button-settings-light');
+if (settingsDark && settingsLight) {
+    settingsDark.addEventListener('click', () =>{
+        if (settingsModal.style.opacity == "0"){
+            animate(settingsModal, { opacity: 1 }, { duration: 0.3, ease: 'easeOut' });
+        }
+    })
+    settingsLight.addEventListener('click', () =>{
+        if (settingsModal.style.opacity == "0"){
+            animate(settingsModal, { opacity: 1 }, { duration: 0.1});
+        }
+    })
+}
+document.addEventListener('click', (e : MouseEvent) =>{
+    if (!settingsModal.contains(e.target as HTMLElement) && settingsModal.style.opacity != "0") {
+        animate(settingsModal, { opacity: 0 }, { duration: 0.1});
+    }
+})
 changeTheme();
