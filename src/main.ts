@@ -426,12 +426,16 @@ function changePosition(el: HTMLElement, modalObject: Modal) {
     }
 }
 function changeColor(modalObject: ModalJob) {
-    const color: string | null = modalObject.getJobColor();
-    if (color == null) {
-        document.documentElement.style.setProperty('--job-color', 'var(--main-color-inside)');
+    const colorDark: string | null = modalObject.getJobColor();
+    const colorLight: string|null = modalObject.getOutlineColor();
+    if (theme =="dark" && colorDark != null){
+        document.documentElement.style.setProperty('--job-color', colorDark);
+    }
+    else if (theme == "light" && colorLight != null){
+        document.documentElement.style.setProperty('--job-color', colorLight);
     }
     else {
-        document.documentElement.style.setProperty('--job-color', color);
+        document.documentElement.style.setProperty('--job-color', 'var(--main-color-inside)');
     }
 }
 
