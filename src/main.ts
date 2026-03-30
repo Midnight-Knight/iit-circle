@@ -14,7 +14,7 @@ const darkElementsCache = new Map<string, { vector: HTMLElement, title: HTMLElem
 const lightElementsCache = new Map<string, { vector: HTMLElement, title: HTMLElement }>();
 
 type ElementState = 'active' | 'activeAndHover' | 'noActive' | 'noActiveAndHover' | 'accentuated';
-const animateCheck = settingsModal.querySelector('.animation-check');
+const animateCheck = settingsModal.querySelector<HTMLInputElement>('.animation-check');
 
 const hasDarkElement = new Map<string, ElementState>();
 const hasLightElement = new Map<string, ElementState>();
@@ -59,7 +59,7 @@ export function changePositionCircle(scale: number | null | undefined = 1.0 , x:
             restSpeed: 0.01
         }
          */
-        if (animateCheck.checked){
+        if (animateCheck?.checked){
             animate([circleLight, circleDark], { x, y }, {
                 type: 'spring',
                 stiffness: 60,
@@ -115,26 +115,26 @@ const hoverDark = (elementVector: HTMLElement | null, elementTitle: HTMLElement 
             break;
         case 'active':
             hasElement.set(id, 'activeAndHover');
-            elementVector!.setAttribute('stroke-width', '0.75');
+            elementVector!.setAttribute('stroke-width', '0.5');
             elementVector!.setAttribute('stroke-color', '#FFFFFF');
             break;
         case 'activeAndHover':
             hasElement.set(id, 'active');
-            elementVector!.setAttribute('stroke-width', '0.25');
+            elementVector!.setAttribute('stroke-width', '0.0833333');
             elementVector!.setAttribute('stroke-color', '#9D9D9D');
             break;
         case 'noActive':
             hasElement.set(id, 'noActiveAndHover');
             elementVector!.setAttribute('opacity', '1');
             elementTitle!.setAttribute('opacity', '1');
-            elementVector!.setAttribute('stroke-width', '0.75');
+            elementVector!.setAttribute('stroke-width', '0.5');
             elementVector!.setAttribute('stroke-color', '#FFFFFF');
             break;
         case 'noActiveAndHover':
             hasElement.set(id, 'noActive');
             elementVector!.setAttribute('opacity', '0.5');
             elementTitle!.setAttribute('opacity', '0.5');
-            elementVector!.setAttribute('stroke-width', '0.25');
+            elementVector!.setAttribute('stroke-width', '0.0833333');
             elementVector!.setAttribute('stroke-color', '#9D9D9D');
             break;
     }
@@ -147,26 +147,26 @@ const hoverLight = (elementVector: HTMLElement | null, elementTitle: HTMLElement
             break;
         case 'active':
             hasElement.set(id, 'activeAndHover');
-            elementVector!.setAttribute('stroke-width', '0.75');
+            elementVector!.setAttribute('stroke-width', '0.5');
             elementVector!.setAttribute('stroke-color', '#151515');
             break;
         case 'activeAndHover':
             hasElement.set(id, 'active');
-            elementVector!.setAttribute('stroke-width', '0.25');
+            elementVector!.setAttribute('stroke-width', '0.0833333');
             elementVector!.setAttribute('stroke-color', '#3B3C48');
             break;
         case 'noActive':
             hasElement.set(id, 'noActiveAndHover');
             elementVector!.setAttribute('opacity', '1');
             elementTitle!.setAttribute('opacity', '1');
-            elementVector!.setAttribute('stroke-width', '0.75');
+            elementVector!.setAttribute('stroke-width', '0.5');
             elementVector!.setAttribute('stroke-color', '#151515');
             break;
         case 'noActiveAndHover':
             hasElement.set(id, 'noActive');
             elementVector!.setAttribute('opacity', '0.5');
             elementTitle!.setAttribute('opacity', '0.5');
-            elementVector!.setAttribute('stroke-width', '0.25');
+            elementVector!.setAttribute('stroke-width', '0.0833333');
             elementVector!.setAttribute('stroke-color', '#3B3C48');
             break;
     }
@@ -175,14 +175,14 @@ const hoverLight = (elementVector: HTMLElement | null, elementTitle: HTMLElement
 function applyAccentuatedDark(elVector: HTMLElement, elTitle: HTMLElement) {
     elTitle.setAttribute('opacity', '1');
     elVector.setAttribute('opacity', '1');
-    elVector.setAttribute('stroke-width', '0.75');
+    elVector.setAttribute('stroke-width', '0.5');
     elVector.setAttribute('stroke-color', '#FFFFFF');
 }
 
 function applyAccentuatedLight(elVector: HTMLElement, elTitle: HTMLElement) {
     elTitle.setAttribute('opacity', '1');
     elVector.setAttribute('opacity', '1');
-    elVector.setAttribute('stroke-width', '0.75');
+    elVector.setAttribute('stroke-width', '0.5');
     elVector.setAttribute('stroke-color', '#151515');
 }
 
@@ -196,7 +196,7 @@ export function resetAllElements() {
             hasDarkElement.set(idForEach, 'active');
             elTitleForEach.setAttribute('opacity', '1');
             elVectorForEach.setAttribute('opacity', '1');
-            elVectorForEach.setAttribute('stroke-width', '0.25');
+            elVectorForEach.setAttribute('stroke-width', '0.0833333');
             elVectorForEach.setAttribute('stroke-color', '#9D9D9D');
         }
     }
@@ -210,7 +210,7 @@ export function resetAllElements() {
             hasLightElement.set(idForEach, 'active');
             elTitleForEach.setAttribute('opacity', '1');
             elVectorForEach.setAttribute('opacity', '1');
-            elVectorForEach.setAttribute('stroke-width', '0.25');
+            elVectorForEach.setAttribute('stroke-width', '0.0833333');
             elVectorForEach.setAttribute('stroke-color', '#3B3C48');
         }
     }
@@ -245,13 +245,13 @@ for (const element of elementsDark) {
                         } else {
                             if (hasForEach === 'activeAndHover' || hasForEach === 'noActiveAndHover') {
                                 hasDarkElement.set(idForEach, 'noActiveAndHover');
-                                elVectorForEach.setAttribute('stroke-width', '0.75');
+                                elVectorForEach.setAttribute('stroke-width', '0.5');
                                 elVectorForEach.setAttribute('stroke-color', '#FFFFFF');
                                 elTitleForEach.setAttribute('opacity', '1');
                                 elVectorForEach.setAttribute('opacity', '1');
                             } else {
                                 hasDarkElement.set(idForEach, 'noActive');
-                                elVectorForEach.setAttribute('stroke-width', '0.25');
+                                elVectorForEach.setAttribute('stroke-width', '0.0833333');
                                 elVectorForEach.setAttribute('stroke-color', '#9D9D9D');
                                 elTitleForEach.setAttribute('opacity', '0.5');
                                 elVectorForEach.setAttribute('opacity', '0.5');
@@ -304,13 +304,13 @@ for (const element of elementsLight) {
                         } else {
                             if (hasForEach === 'activeAndHover' || hasForEach === 'noActiveAndHover') {
                                 hasLightElement.set(idForEach, 'noActiveAndHover');
-                                elVectorForEach.setAttribute('stroke-width', '0.75');
+                                elVectorForEach.setAttribute('stroke-width', '0.5');
                                 elVectorForEach.setAttribute('stroke-color', '#151515');
                                 elTitleForEach.setAttribute('opacity', '1');
                                 elVectorForEach.setAttribute('opacity', '1');
                             } else {
                                 hasLightElement.set(idForEach, 'noActive');
-                                elVectorForEach.setAttribute('stroke-width', '0.25');
+                                elVectorForEach.setAttribute('stroke-width', '0.0833333');
                                 elVectorForEach.setAttribute('stroke-color', '#3B3C48');
                                 elTitleForEach.setAttribute('opacity', '0.5');
                                 elVectorForEach.setAttribute('opacity', '0.5');
@@ -363,9 +363,9 @@ function changeTheme() {
             animate(circleDisabled, { opacity: 0 }, { duration: 0.3, ease: 'easeIn' })
                 .then(() => { circleDisabled.style.display = 'none'; });
             buttonActive.classList.add('active-button');
-            buttonSettingsAct.classList.add('active-button');
+            buttonSettingsAct?.classList.add('active-button');
             buttonDisabled.classList.remove('active-button');
-            buttonSettingsDis.classList.remove('active-button');
+            buttonSettingsDis?.classList.remove('active-button');
             app.classList.remove('light-app');
             app.classList.add('dark-app');
             document.documentElement.style.setProperty('--main-color-elements', '#151515');
@@ -387,9 +387,9 @@ function changeTheme() {
             animate(circleDisabled, { opacity: 0 }, { duration: 0.3, ease: 'easeIn' })
                 .then(() => { circleDisabled.style.display = 'none'; });
             buttonActive.classList.add('active-button');
-            buttonSettingsAct.classList.add('active-button');
+            buttonSettingsAct?.classList.add('active-button');
             buttonDisabled.classList.remove('active-button');
-            buttonSettingsDis.classList.remove('active-button');
+            buttonSettingsDis?.classList.remove('active-button');
             app.classList.remove('dark-app');
             app.classList.add('light-app');
             document.documentElement.style.setProperty('--main-color-elements', '#FFFFFF');

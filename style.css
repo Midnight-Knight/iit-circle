@@ -23,6 +23,8 @@ body {
   height: 100%;
 }
 
+
+
 @media screen and (orientation: portrait) {
   html {
     transform: rotate(90deg);
@@ -62,14 +64,15 @@ body {
   border-radius:1svmin;
   padding: 2svmin;
   top: calc(6svmin + 64px);
-  left: 5svmin;
+  right: 5svmin;
   >p{
-    font-size: 0.8rem;
+    font-size: 1.5rem;
     font-family: 'Neue-Light';
     color: var(--main-color-inside);
   }
   >input{
     margin-left: 1svmin;
+    width: 3svmin;
   }
 }
 .modal{
@@ -326,7 +329,7 @@ body {
 .button-settings-dark, .button-settings-light {
   width: 64px;
   top: 5dvmin;
-  left: 5dvmin;
+  right: 5dvmin;
 }
 
 .active-button {
