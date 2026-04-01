@@ -1,0 +1,11 @@
+services:
+  web:
+    build: .
+    logging:
+      driver: json-file
+      options:
+        max-file: "10"
+        max-size: 200k
+    ports:
+      - "80:80"
+    restart: unless-stopped
