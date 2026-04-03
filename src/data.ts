@@ -13,6 +13,7 @@ export type dataObjectType = {
     profiles: string[] | null,
     vacancies: string | null,
     url: string | null,
+    relatedSectors: string[] | null,
 }
 export type dataType = Record<string, dataObjectType>
 
@@ -37,7 +38,8 @@ const data: dataType = {
             "Анализ данных"
         ],
         "vacancies": null,
-        "url": null
+        "url": null,
+        "relatedSectors": ['data', 'data-1-1', 'data-2-1', 'data-2-2', 'data-2-3', 'data-3-1', 'data-4-1']
     },
     "09-03-01-1": {
         "sectorTitle": "09.03.01 | Информатика и вычислительная техника",
@@ -61,7 +63,8 @@ const data: dataType = {
             "Инфраструктура информационных технологий"
         ],
         "vacancies": null,
-        "url": null
+        "url": null,
+        "relatedSectors": ['infrastructure', 'infrastructure-1-1', 'infrastructure-2-1', 'infrastructure-2-2', 'infrastructure-2-3', 'infrastructure-2-4', 'infrastructure-3-1', 'infrastructure-3-2', 'infrastructure-4-1', 'iot', 'iot-1-1', 'iot-2-1', 'iot-2-2', 'iot-3-1', 'iot-4-1', 'quantum', 'quantum-1-1', 'quantum-2-1', 'quantum-2-2', 'quantum-3-1', 'quantum-3-2', 'quantum-4-1', 'telecommunications', 'telecommunications-1-1', 'telecommunications-2-1', 'telecommunications-2-2', 'telecommunications-2-3', 'telecommunications-3-1', 'telecommunications-4-1']
     },
     "09-03-03-1": {
         "sectorTitle": "09.03.03 | Прикладная информатика",
@@ -85,7 +88,8 @@ const data: dataType = {
             "Информатизация организаций"
         ],
         "vacancies": null,
-        "url": null
+        "url": null,
+        "relatedSectors": ['management', 'management-1-1', 'management-2-1', 'management-2-2', 'management-3-1', 'management-3-2', 'management-4-1', 'management-5-1', 'methodology-1']
     },
     "09-03-04-1": {
         "sectorTitle": "09.03.04 | Программная инженерия",
@@ -113,7 +117,8 @@ const data: dataType = {
             "Информационные системы управления ресурсами предприятия"
         ],
         "vacancies": null,
-        "url": null
+        "url": null,
+        "relatedSectors": ['methodology-1','development', 'development-1-1', 'development-2-1', 'development-3-1', 'development-4-1', 'development-5-1', 'development-5-2', 'development-6-1', 'automation', 'automation-1-1', 'automation-2-1', 'automation-3-1', 'automation-3-2', 'automation-3-3', 'automation-3-4', 'automation-4-1', 'automation-5-1']
     },
     "09-03-04-2": {
         "sectorTitle": "09.03.04 | Программная инженерия",
@@ -141,7 +146,8 @@ const data: dataType = {
             "Информационные системы управления ресурсами предприятия"
         ],
         "vacancies": null,
-        "url": null
+        "url": null,
+        "relatedSectors": ['intelligence', 'intelligence-1-1', 'intelligence-2-1', 'intelligence-2-2', 'intelligence-2-3', 'intelligence-3-1', 'intelligence-4-1']
     },
     "additional-programm": {
         "sectorTitle": "Дополнительное образование",
@@ -165,7 +171,8 @@ const data: dataType = {
             "Информационные технологии в атомной отрасли"
         ],
         "vacancies": null,
-        "url": null
+        "url": null,
+        "relatedSectors": ['security', 'security-1-1', 'security-2-1', 'security-2-2', 'security-2-3', 'security-3-1', 'security-4-1' ]
     },
     "automation": {
         "sectorTitle": "Автоматизация",
@@ -190,10 +197,11 @@ const data: dataType = {
             "Инфраструктура информационных технологий",
             "Разработка программных продуктов и проектирование информационных систем",
             "Информационные технологии в атомной отрасли",
-            "Цифровая трансформация",
+            "Цифровая трансформация"
         ],
         "vacancies": null,
-        "url": null
+        "url": null,
+        "relatedSectors": ['09-03-04-1', 'automation-1-1', 'automation-2-1', 'automation-3-1', 'automation-3-2', 'automation-3-3', 'automation-3-4', 'automation-4-1', 'automation-5-1']
     },
     "automation-1-1": {
         "sectorTitle": "Автоматизация",
@@ -221,10 +229,11 @@ const data: dataType = {
             "Инфраструктура информационных технологий",
             "Разработка программных продуктов и проектирование информационных систем",
             "Информационные технологии в атомной отрасли",
-            "Цифровая трансформация",
+            "Цифровая трансформация"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?area=1&search_field=name&search_field=company_name&search_field=description&enable_snippets=false&text=devops&experience=noExperience&professional_role=160',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?area=1&search_field=name&search_field=company_name&search_field=description&enable_snippets=false&text=devops&experience=noExperience&professional_role=160",
+        "url": null,
+        "relatedSectors": ['09-03-04-1', 'automation', 'automation-2-1', 'automation-3-1', 'automation-3-2', 'automation-3-3', 'automation-3-4', 'automation-4-1', 'automation-5-1']
     },
     "automation-2-1": {
         "sectorTitle": "Автоматизация",
@@ -252,10 +261,11 @@ const data: dataType = {
             "Инфраструктура информационных технологий",
             "Разработка программных продуктов и проектирование информационных систем",
             "Информационные технологии в атомной отрасли",
-            "Цифровая трансформация",
+            "Цифровая трансформация"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?area=1&search_field=name&search_field=company_name&search_field=description&enable_snippets=false&text=devops&experience=between1And3&professional_role=160',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?area=1&search_field=name&search_field=company_name&search_field=description&enable_snippets=false&text=devops&experience=between1And3&professional_role=160",
+        "url": null,
+        "relatedSectors": ['09-03-04-1', 'automation', 'automation-1-1', 'automation-3-1', 'automation-3-2', 'automation-3-3', 'automation-3-4', 'automation-4-1', 'automation-5-1']
     },
     "automation-3-1": {
         "sectorTitle": "Автоматизация",
@@ -279,10 +289,11 @@ const data: dataType = {
         ],
         "profiles": [
             "Цифровая трансформация",
-            "Информационные технологии в атомной отрасли",
+            "Информационные технологии в атомной отрасли"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?ored_clusters=true&area=1&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&search_field=name&search_field=company_name&search_field=description&enable_snippets=false&text=rpa&experience=between1And3',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?ored_clusters=true&area=1&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&search_field=name&search_field=company_name&search_field=description&enable_snippets=false&text=rpa&experience=between1And3",
+        "url": null,
+        "relatedSectors": ['09-03-04-1', 'automation', 'automation-1-1', 'automation-2-1', 'automation-3-2', 'automation-3-3', 'automation-3-4', 'automation-4-1', 'automation-5-1']
     },
     "automation-3-2": {
         "sectorTitle": "Автоматизация",
@@ -306,8 +317,9 @@ const data: dataType = {
         "profiles": [
             "Системная и программная инженерия"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?text=QA&salary=&ored_clusters=true&experience=between1And3&area=1&suggestId=d8c776a1-497b-495b-82c0-4260ed99e268&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?text=QA&salary=&ored_clusters=true&experience=between1And3&area=1&suggestId=d8c776a1-497b-495b-82c0-4260ed99e268&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line",
+        "url": null,
+        "relatedSectors": ['09-03-04-1', 'automation', 'automation-1-1', 'automation-2-1', 'automation-3-1', 'automation-3-3', 'automation-3-4', 'automation-4-1', 'automation-5-1']
     },
     "automation-3-3": {
         "sectorTitle": "Автоматизация",
@@ -327,15 +339,16 @@ const data: dataType = {
         "positionSide": "left",
         "directions": [
             "09.03.04",
-            "09.03.01",
+            "09.03.01"
         ],
         "profiles": [
             "Системная и программная инженерия",
             "Инфраструктура информационных технологий",
-            "Разработка программных продуктов и проектирование информационных систем",
+            "Разработка программных продуктов и проектирование информационных систем"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?text=Devops&from=suggest_post&salary=&ored_clusters=true&experience=between1And3&area=1&suggestId=5c1a61a6-cae9-4ab3-baa3-5bc3c8a93f0a&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?text=Devops&from=suggest_post&salary=&ored_clusters=true&experience=between1And3&area=1&suggestId=5c1a61a6-cae9-4ab3-baa3-5bc3c8a93f0a&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line",
+        "url": null,
+        "relatedSectors": ['09-03-04-1', 'automation', 'automation-1-1', 'automation-2-1', 'automation-3-1', 'automation-3-2', 'automation-3-4', 'automation-4-1', 'automation-5-1']
     },
     "automation-3-4": {
         "sectorTitle": "Автоматизация",
@@ -359,10 +372,11 @@ const data: dataType = {
         ],
         "profiles": [
             "Инфраструктура информационных технологий",
-            "Системная и программная инженерия",
+            "Системная и программная инженерия"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?text=Devops&from=suggest_post&salary=&ored_clusters=true&experience=between1And3&area=1&suggestId=5c1a61a6-cae9-4ab3-baa3-5bc3c8a93f0a&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?text=Devops&from=suggest_post&salary=&ored_clusters=true&experience=between1And3&area=1&suggestId=5c1a61a6-cae9-4ab3-baa3-5bc3c8a93f0a&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line",
+        "url": null,
+        "relatedSectors": ['09-03-04-1', 'automation', 'automation-1-1', 'automation-2-1', 'automation-3-1', 'automation-3-2', 'automation-3-3', 'automation-4-1', 'automation-5-1']
     },
     "automation-4-1": {
         "sectorTitle": "Автоматизация",
@@ -390,10 +404,11 @@ const data: dataType = {
             "Инфраструктура информационных технологий",
             "Разработка программных продуктов и проектирование информационных систем",
             "Информационные технологии в атомной отрасли",
-            "Цифровая трансформация",
+            "Цифровая трансформация"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?from=suggest_post&ored_clusters=true&area=1&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=Devops&experience=between3And6&search_field=name&search_field=company_name&search_field=description&enable_snippets=false',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?from=suggest_post&ored_clusters=true&area=1&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=Devops&experience=between3And6&search_field=name&search_field=company_name&search_field=description&enable_snippets=false",
+        "url": null,
+        "relatedSectors": ['09-03-04-1', 'automation', 'automation-1-1', 'automation-2-1', 'automation-3-1', 'automation-3-2', 'automation-3-3', 'automation-3-4', 'automation-5-1']
     },
     "automation-5-1": {
         "sectorTitle": "Автоматизация",
@@ -421,10 +436,11 @@ const data: dataType = {
             "Инфраструктура информационных технологий",
             "Разработка программных продуктов и проектирование информационных систем",
             "Информационные технологии в атомной отрасли",
-            "Цифровая трансформация",
+            "Цифровая трансформация"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?from=suggest_post&ored_clusters=true&area=1&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&search_field=name&search_field=company_name&search_field=description&enable_snippets=false&text=Devops&experience=moreThan6',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?from=suggest_post&ored_clusters=true&area=1&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&search_field=name&search_field=company_name&search_field=description&enable_snippets=false&text=Devops&experience=moreThan6",
+        "url": null,
+        "relatedSectors": ['09-03-04-1', 'automation', 'automation-1-1', 'automation-2-1', 'automation-3-1', 'automation-3-2', 'automation-3-3', 'automation-3-4', 'automation-4-1']
     },
     "data": {
         "sectorTitle": "Анализ данных",
@@ -448,7 +464,8 @@ const data: dataType = {
             "Управление данными"
         ],
         "vacancies": null,
-        "url": null
+        "url": null,
+        "relatedSectors": ['01-03-04-1', 'data-1-1', 'data-2-1', 'data-2-2', 'data-2-3', 'data-3-1', 'data-4-1']
     },
     "data-1-1": {
         "sectorTitle": "Анализ данных",
@@ -474,8 +491,9 @@ const data: dataType = {
             "Анализ данных",
             "Управление данными"
         ],
-        "vacancies": 'https://hh.ru/vacancies/analitik-dannyh/bez_opyta_raboty',
-        "url": null
+        "vacancies": "https://hh.ru/vacancies/analitik-dannyh/bez_opyta_raboty",
+        "url": null,
+        "relatedSectors": ['01-03-04-1', 'data', 'data-2-1', 'data-2-2', 'data-2-3', 'data-3-1', 'data-4-1']
     },
     "data-2-1": {
         "sectorTitle": "Анализ данных",
@@ -501,8 +519,9 @@ const data: dataType = {
             "Анализ данных",
             "Управление данными"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?text=%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA+%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85&area=1&experience=between1And3&search_field=name&search_field=company_name&search_field=description&enable_snippets=false',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?text=%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA+%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85&area=1&experience=between1And3&search_field=name&search_field=company_name&search_field=description&enable_snippets=false",
+        "url": null,
+        "relatedSectors": ['01-03-04-1', 'data', 'data-1-1', 'data-2-2', 'data-2-3', 'data-3-1', 'data-4-1']
     },
     "data-2-2": {
         "sectorTitle": "Анализ данных",
@@ -522,14 +541,15 @@ const data: dataType = {
         "positionSide": "left",
         "directions": [
             "09.03.03",
-            "01.03.04",
+            "01.03.04"
         ],
         "profiles": [
             "Управление данными",
             "Анализ данных"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?text=%D0%B8%D0%BD%D0%B6%D0%B5%D0%BD%D0%B5%D1%80+%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85&salary=&ored_clusters=true&experience=between1And3&area=1&suggestId=eb56de77-4698-439b-b6ce-9d4e13d6ef8e&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?text=%D0%B8%D0%BD%D0%B6%D0%B5%D0%BD%D0%B5%D1%80+%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85&salary=&ored_clusters=true&experience=between1And3&area=1&suggestId=eb56de77-4698-439b-b6ce-9d4e13d6ef8e&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line",
+        "url": null,
+        "relatedSectors": ['01-03-04-1', 'data', 'data-1-1', 'data-2-1', 'data-2-3', 'data-3-1', 'data-4-1']
     },
     "data-2-3": {
         "sectorTitle": "Анализ данных",
@@ -549,14 +569,15 @@ const data: dataType = {
         "positionSide": "left",
         "directions": [
             "01.03.04",
-            "09.03.03",
+            "09.03.03"
         ],
         "profiles": [
             "Анализ данных",
-            "Управление данными",
+            "Управление данными"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?ored_clusters=true&area=1&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&search_field=name&search_field=company_name&search_field=description&enable_snippets=false&text=%D0%9C%D0%B5%D1%82%D0%BE%D0%B4%D0%BE%D0%BB%D0%BE%D0%B3+%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85&experience=between1And3',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?ored_clusters=true&area=1&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&search_field=name&search_field=company_name&search_field=description&enable_snippets=false&text=%D0%9C%D0%B5%D1%82%D0%BE%D0%B4%D0%BE%D0%BB%D0%BE%D0%B3+%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85&experience=between1And3",
+        "url": null,
+        "relatedSectors": ['01-03-04-1', 'data', 'data-1-1', 'data-2-1', 'data-2-2', 'data-3-1', 'data-4-1']
     },
     "data-3-1": {
         "sectorTitle": "Анализ данных",
@@ -576,14 +597,15 @@ const data: dataType = {
         "positionSide": "left",
         "directions": [
             "09.03.03",
-            "01.03.04",
+            "01.03.04"
         ],
         "profiles": [
             "Управление данными",
             "Анализ данных"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?from=suggest_post&ored_clusters=true&area=1&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=%D0%90%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA+%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85&experience=between3And6&search_field=name&search_field=company_name&search_field=description&enable_snippets=false',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?from=suggest_post&ored_clusters=true&area=1&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=%D0%90%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA+%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85&experience=between3And6&search_field=name&search_field=company_name&search_field=description&enable_snippets=false",
+        "url": null,
+        "relatedSectors": ['01-03-04-1', 'data', 'data-1-1', 'data-2-1', 'data-2-2', 'data-2-3', 'data-4-1']
     },
     "data-4-1": {
         "sectorTitle": "Анализ данных",
@@ -603,14 +625,15 @@ const data: dataType = {
         "positionSide": "left",
         "directions": [
             "01.03.04",
-            "09.03.03",
+            "09.03.03"
         ],
         "profiles": [
             "Анализ данных",
-            "Управление данными",
+            "Управление данными"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?from=suggest_post&ored_clusters=true&area=1&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&search_field=name&search_field=company_name&search_field=description&enable_snippets=false&text=%D0%90%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA+%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85&experience=moreThan6',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?from=suggest_post&ored_clusters=true&area=1&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&search_field=name&search_field=company_name&search_field=description&enable_snippets=false&text=%D0%90%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA+%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85&experience=moreThan6",
+        "url": null,
+        "relatedSectors": ['01-03-04-1', 'data', 'data-1-1', 'data-2-1', 'data-2-2', 'data-2-3', 'data-3-1']
     },
     "development": {
         "sectorTitle": "Разработка",
@@ -640,7 +663,8 @@ const data: dataType = {
             "Цифровые комплексы, системы и сети"
         ],
         "vacancies": null,
-        "url": null
+        "url": null,
+        "relatedSectors": ['methodology-1', '09-03-04-1', 'development-1-1', 'development-2-1', 'development-3-1', 'development-4-1', 'development-5-1', 'development-5-2', 'development-6-1']
     },
     "development-1-1": {
         "sectorTitle": "Разработка",
@@ -672,8 +696,9 @@ const data: dataType = {
             "Информационные системы управления ресурсами предприятия",
             "Цифровые комплексы, системы и сети"
         ],
-        "vacancies": 'https://hh.ru/vacancies/razrabotchik/bez_opyta_raboty',
-        "url": null
+        "vacancies": "https://hh.ru/vacancies/razrabotchik/bez_opyta_raboty",
+        "url": null,
+        "relatedSectors": ['methodology-1', '09-03-04-1', 'development', 'development-2-1', 'development-3-1', 'development-4-1', 'development-5-1', 'development-5-2', 'development-6-1']
     },
     "development-2-1": {
         "sectorTitle": "Разработка",
@@ -705,8 +730,9 @@ const data: dataType = {
             "Информационные системы управления ресурсами предприятия",
             "Цифровые комплексы, системы и сети"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?text=%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA&area=1&experience=between1And3&search_field=name&search_field=company_name&search_field=description&enable_snippets=false',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?text=%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA&area=1&experience=between1And3&search_field=name&search_field=company_name&search_field=description&enable_snippets=false",
+        "url": null,
+        "relatedSectors": ['methodology-1', '09-03-04-1', 'development', 'development-1-1', 'development-3-1', 'development-4-1', 'development-5-1', 'development-5-2', 'development-6-1']
     },
     "development-3-1": {
         "sectorTitle": "Разработка",
@@ -738,8 +764,9 @@ const data: dataType = {
             "Информационные системы управления ресурсами предприятия",
             "Цифровые комплексы, системы и сети"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?area=1&search_field=name&search_field=company_name&search_field=description&enable_snippets=false&text=%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA&experience=between3And6',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?area=1&search_field=name&search_field=company_name&search_field=description&enable_snippets=false&text=%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA&experience=between3And6",
+        "url": null,
+        "relatedSectors": ['methodology-1', '09-03-04-1', 'development', 'development-1-1', 'development-2-1', 'development-4-1', 'development-5-1', 'development-5-2', 'development-6-1']
     },
     "development-4-1": {
         "sectorTitle": "Разработка",
@@ -771,8 +798,9 @@ const data: dataType = {
             "Информационные системы управления ресурсами предприятия",
             "Цифровые комплексы, системы и сети"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?area=1&search_field=name&search_field=company_name&search_field=description&enable_snippets=false&text=%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA&experience=moreThan6',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?area=1&search_field=name&search_field=company_name&search_field=description&enable_snippets=false&text=%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA&experience=moreThan6",
+        "url": null,
+        "relatedSectors": ['methodology-1', '09-03-04-1', 'development', 'development-1-1', 'development-2-1', 'development-3-1', 'development-5-1', 'development-5-2', 'development-6-1']
     },
     "development-5-1": {
         "sectorTitle": "Разработка",
@@ -804,8 +832,9 @@ const data: dataType = {
             "Информационные системы управления ресурсами предприятия",
             "Цифровые комплексы, системы и сети"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?text=TeamLead&salary=&ored_clusters=true&experience=moreThan6&area=1&suggestId=9718c596-fed8-4f47-930a-da37d5cf728f&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?text=TeamLead&salary=&ored_clusters=true&experience=moreThan6&area=1&suggestId=9718c596-fed8-4f47-930a-da37d5cf728f&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line",
+        "url": null,
+        "relatedSectors": ['methodology-1', '09-03-04-1', 'development', 'development-1-1', 'development-2-1', 'development-3-1', 'development-4-1', 'development-5-2', 'development-6-1']
     },
     "development-5-2": {
         "sectorTitle": "Разработка",
@@ -837,8 +866,9 @@ const data: dataType = {
             "Информационные системы управления ресурсами предприятия",
             "Цифровые комплексы, системы и сети"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?ored_clusters=true&area=1&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=Software+Architect&experience=moreThan6&search_field=name&search_field=company_name&search_field=description&enable_snippets=false',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?ored_clusters=true&area=1&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=Software+Architect&experience=moreThan6&search_field=name&search_field=company_name&search_field=description&enable_snippets=false",
+        "url": null,
+        "relatedSectors": ['methodology-1', '09-03-04-1', 'development', 'development-1-1', 'development-2-1', 'development-3-1', 'development-4-1', 'development-5-1', 'development-6-1']
     },
     "development-6-1": {
         "sectorTitle": "Разработка",
@@ -870,8 +900,9 @@ const data: dataType = {
             "Информационные системы управления ресурсами предприятия",
             "Цифровые комплексы, системы и сети"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&search_field=name&search_field=company_name&search_field=description&enable_snippets=false&text=%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+%D0%B4%D0%B5%D0%BF%D0%B0%D1%80%D1%82%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0+%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8&experience=moreThan6&professional_role=107&L_save_area=true',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&search_field=name&search_field=company_name&search_field=description&enable_snippets=false&text=%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+%D0%B4%D0%B5%D0%BF%D0%B0%D1%80%D1%82%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0+%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8&experience=moreThan6&professional_role=107&L_save_area=true",
+        "url": null,
+        "relatedSectors": ['methodology-1', '09-03-04-1', 'development', 'development-1-1', 'development-2-1', 'development-3-1', 'development-4-1', 'development-5-1', 'development-5-2']
     },
     "director": {
         "sectorTitle": "Руководящие должности",
@@ -891,8 +922,9 @@ const data: dataType = {
         "positionSide": "center-right",
         "directions": null,
         "profiles": null,
-        "vacancies": 'https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&search_field=name&search_field=company_name&search_field=description&enable_snippets=false&L_save_area=true&industry=7&text=%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+%D0%B4%D0%B5%D0%BF%D0%B0%D1%80%D1%82%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0+%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8&professional_role=125',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&search_field=name&search_field=company_name&search_field=description&enable_snippets=false&L_save_area=true&industry=7&text=%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+%D0%B4%D0%B5%D0%BF%D0%B0%D1%80%D1%82%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0+%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8&professional_role=125",
+        "url": null,
+        "relatedSectors": ['automation-5-1', 'data-4-1', 'development-6-1', 'infrastructure-4-1', 'iot-4-1', 'management-5-1', 'quantum-4-1', 'security-4-1', 'telecommunications-4-1', 'methodology-1', 'intelligence-4-1']
     },
     "infrastructure": {
         "sectorTitle": "ИТ Инфраструктура",
@@ -917,7 +949,8 @@ const data: dataType = {
             "Информационные технологии в атомной отрасли"
         ],
         "vacancies": null,
-        "url": null
+        "url": null,
+        "relatedSectors": ["09-03-01-1", 'infrastructure-1-1', 'infrastructure-2-1', 'infrastructure-2-2', 'infrastructure-2-3', 'infrastructure-2-4', 'infrastructure-3-1', 'infrastructure-3-2', 'infrastructure-4-1']
     },
     "infrastructure-1-1": {
         "sectorTitle": "ИТ Инфраструктура",
@@ -944,8 +977,9 @@ const data: dataType = {
             "Квантовые коммуникации и вычисления",
             "Информационные технологии в атомной отрасли"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?text=%D0%9E%D0%B1%D1%81%D0%BB%D1%83%D0%B6%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5+%D0%98%D0%A2-%D0%B8%D0%BD%D1%84%D1%80%D0%B0%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D1%8B&salary=&ored_clusters=true&experience=noExperience&suggestId=69fa4a4b-1d8f-40d7-a151-59a2a7804f31&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?text=%D0%9E%D0%B1%D1%81%D0%BB%D1%83%D0%B6%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5+%D0%98%D0%A2-%D0%B8%D0%BD%D1%84%D1%80%D0%B0%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D1%8B&salary=&ored_clusters=true&experience=noExperience&suggestId=69fa4a4b-1d8f-40d7-a151-59a2a7804f31&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line",
+        "url": null,
+        "relatedSectors": ["09-03-01-1", 'infrastructure', 'infrastructure-2-1', 'infrastructure-2-2', 'infrastructure-2-3', 'infrastructure-2-4', 'infrastructure-3-1', 'infrastructure-3-2', 'infrastructure-4-1']
     },
     "infrastructure-2-1": {
         "sectorTitle": "ИТ Инфраструктура",
@@ -969,8 +1003,9 @@ const data: dataType = {
         "profiles": [
             "Инфраструктура информационных технологий"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=%D0%9E%D0%BF%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%B0%D1%8F+%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D0%B0+%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D0%B5%D0%B9&experience=between1And3&search_field=name&search_field=company_name&search_field=description&enable_snippets=false',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=%D0%9E%D0%BF%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%B0%D1%8F+%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D0%B0+%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D0%B5%D0%B9&experience=between1And3&search_field=name&search_field=company_name&search_field=description&enable_snippets=false",
+        "url": null,
+        "relatedSectors": ["09-03-01-1", 'infrastructure', 'infrastructure-1-1', 'infrastructure-2-2', 'infrastructure-2-3', 'infrastructure-2-4', 'infrastructure-3-1', 'infrastructure-3-2', 'infrastructure-4-1']
     },
     "infrastructure-2-2": {
         "sectorTitle": "ИТ Инфраструктура",
@@ -995,8 +1030,9 @@ const data: dataType = {
             "Инфраструктура информационных технологий",
             "Квантовые коммуникации и вычисления"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?text=%D0%98%D0%BD%D0%B6%D0%B5%D0%BD%D0%B5%D1%80+%D0%BF%D0%BE+%D0%B2%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8&salary=&ored_clusters=true&experience=between1And3&suggestId=828ce6b6-b7e1-4da5-ae9d-536cac15ea60&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?text=%D0%98%D0%BD%D0%B6%D0%B5%D0%BD%D0%B5%D1%80+%D0%BF%D0%BE+%D0%B2%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8&salary=&ored_clusters=true&experience=between1And3&suggestId=828ce6b6-b7e1-4da5-ae9d-536cac15ea60&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line",
+        "url": null,
+        "relatedSectors": ["09-03-01-1", 'infrastructure', 'infrastructure-1-1', 'infrastructure-2-1', 'infrastructure-2-3', 'infrastructure-2-4', 'infrastructure-3-1', 'infrastructure-3-2', 'infrastructure-4-1']
     },
     "infrastructure-2-3": {
         "sectorTitle": "ИТ Инфраструктура",
@@ -1021,8 +1057,9 @@ const data: dataType = {
             "Инфраструктура информационных технологий",
             "Квантовые коммуникации и вычисления"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?text=%D0%98%D0%BD%D0%B6%D0%B5%D0%BD%D0%B5%D1%80+%D0%BF%D0%BE+%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0%D0%BC+%D1%85%D1%80%D0%B0%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F+%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85&salary=&ored_clusters=true&experience=between1And3&suggestId=4af35d64-6388-4574-bfd2-801d1c61085a&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?text=%D0%98%D0%BD%D0%B6%D0%B5%D0%BD%D0%B5%D1%80+%D0%BF%D0%BE+%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0%D0%BC+%D1%85%D1%80%D0%B0%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F+%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85&salary=&ored_clusters=true&experience=between1And3&suggestId=4af35d64-6388-4574-bfd2-801d1c61085a&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line",
+        "url": null,
+        "relatedSectors": ["09-03-01-1", 'infrastructure', 'infrastructure-1-1', 'infrastructure-2-1', 'infrastructure-2-2', 'infrastructure-2-4', 'infrastructure-3-1', 'infrastructure-3-2', 'infrastructure-4-1']
     },
     "infrastructure-2-4": {
         "sectorTitle": "ИТ Инфраструктура",
@@ -1049,8 +1086,9 @@ const data: dataType = {
             "Квантовые коммуникации и вычисления",
             "Информационные технологии в атомной отрасли"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?text=%D0%98%D0%BD%D0%B6%D0%B5%D0%BD%D0%B5%D1%80+%D0%A6%D0%9E%D0%94&salary=&ored_clusters=true&experience=between1And3&suggestId=3fca4336-23aa-40fa-b23e-3ae8affc346d&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?text=%D0%98%D0%BD%D0%B6%D0%B5%D0%BD%D0%B5%D1%80+%D0%A6%D0%9E%D0%94&salary=&ored_clusters=true&experience=between1And3&suggestId=3fca4336-23aa-40fa-b23e-3ae8affc346d&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line",
+        "url": null,
+        "relatedSectors": ["09-03-01-1", 'infrastructure', 'infrastructure-1-1', 'infrastructure-2-1', 'infrastructure-2-2', 'infrastructure-2-3', 'infrastructure-3-1', 'infrastructure-3-2', 'infrastructure-4-1']
     },
     "infrastructure-3-1": {
         "sectorTitle": "ИТ Инфраструктура",
@@ -1075,8 +1113,9 @@ const data: dataType = {
             "Инфраструктура информационных технологий",
             "Квантовые коммуникации и вычисления"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D0%BE%D1%80+%D0%98%D0%A2+%D0%98%D0%BD%D1%84%D1%80%D0%B0%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D1%8B&experience=between3And6&search_field=name&search_field=company_name&search_field=description&enable_snippets=false',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D0%BE%D1%80+%D0%98%D0%A2+%D0%98%D0%BD%D1%84%D1%80%D0%B0%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D1%8B&experience=between3And6&search_field=name&search_field=company_name&search_field=description&enable_snippets=false",
+        "url": null,
+        "relatedSectors": ["09-03-01-1", 'infrastructure', 'infrastructure-1-1', 'infrastructure-2-1', 'infrastructure-2-2', 'infrastructure-2-3', 'infrastructure-2-4', 'infrastructure-3-2', 'infrastructure-4-1']
     },
     "infrastructure-3-2": {
         "sectorTitle": "ИТ Инфраструктура",
@@ -1103,8 +1142,9 @@ const data: dataType = {
             "Квантовые коммуникации и вычисления",
             "Информационные технологии в атомной отрасли"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?text=%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+%D0%B3%D1%80%D1%83%D0%BF%D0%BF%D1%8B+%D0%98%D0%A2+%D0%98%D0%BD%D1%84%D1%80%D0%B0%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D1%8B&salary=&ored_clusters=true&experience=between3And6&suggestId=93be398d-b3f1-4aef-89a6-1c9767e0e44d&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?text=%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+%D0%B3%D1%80%D1%83%D0%BF%D0%BF%D1%8B+%D0%98%D0%A2+%D0%98%D0%BD%D1%84%D1%80%D0%B0%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D1%8B&salary=&ored_clusters=true&experience=between3And6&suggestId=93be398d-b3f1-4aef-89a6-1c9767e0e44d&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line",
+        "url": null,
+        "relatedSectors": ["09-03-01-1", 'infrastructure', 'infrastructure-1-1', 'infrastructure-2-1', 'infrastructure-2-2', 'infrastructure-2-3', 'infrastructure-2-4', 'infrastructure-3-1', 'infrastructure-4-1']
     },
     "infrastructure-4-1": {
         "sectorTitle": "ИТ Инфраструктура",
@@ -1131,8 +1171,9 @@ const data: dataType = {
             "Квантовые коммуникации и вычисления",
             "Информационные технологии в атомной отрасли"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?text=%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+%D0%B4%D0%B5%D0%BF%D0%B0%D1%80%D1%82%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0+%D0%98%D0%A2+%D0%98%D0%BD%D1%84%D1%80%D0%B0%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D1%8B&salary=&ored_clusters=true&experience=between3And6&suggestId=090c0bae-e489-4d37-8a1f-4e8b82e67df9&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?text=%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+%D0%B4%D0%B5%D0%BF%D0%B0%D1%80%D1%82%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0+%D0%98%D0%A2+%D0%98%D0%BD%D1%84%D1%80%D0%B0%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D1%8B&salary=&ored_clusters=true&experience=between3And6&suggestId=090c0bae-e489-4d37-8a1f-4e8b82e67df9&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line",
+        "url": null,
+        "relatedSectors": ["09-03-01-1", 'infrastructure', 'infrastructure-1-1', 'infrastructure-2-1', 'infrastructure-2-2', 'infrastructure-2-3', 'infrastructure-2-4', 'infrastructure-3-1', 'infrastructure-3-2']
     },
     "intelligence": {
         "sectorTitle": "Искусственный интеллект",
@@ -1158,7 +1199,8 @@ const data: dataType = {
             "Управление данными"
         ],
         "vacancies": null,
-        "url": null
+        "url": null,
+        "relatedSectors": ['09-03-04-2', 'intelligence-1-1', 'intelligence-2-1', 'intelligence-2-2', 'intelligence-2-3', 'intelligence-3-1', 'intelligence-4-1']
     },
     "intelligence-1-1": {
         "sectorTitle": "Искусственный интеллект",
@@ -1186,8 +1228,9 @@ const data: dataType = {
             "Анализ данных",
             "Управление данными"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?text=%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA+%D0%BD%D0%B5%D0%B9%D1%80%D0%BE%D1%81%D0%B5%D1%82%D0%B5%D0%B9&from=suggest_post&salary=&ored_clusters=true&experience=noExperience&suggestId=bedd2fa3-5f87-41e7-b045-74dbac0ecac1&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?text=%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA+%D0%BD%D0%B5%D0%B9%D1%80%D0%BE%D1%81%D0%B5%D1%82%D0%B5%D0%B9&from=suggest_post&salary=&ored_clusters=true&experience=noExperience&suggestId=bedd2fa3-5f87-41e7-b045-74dbac0ecac1&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line",
+        "url": null,
+        "relatedSectors": ['09-03-04-2', 'intelligence', 'intelligence-2-1', 'intelligence-2-2', 'intelligence-2-3', 'intelligence-3-1', 'intelligence-4-1']
     },
     "intelligence-2-1": {
         "sectorTitle": "Искусственный интеллект",
@@ -1215,8 +1258,9 @@ const data: dataType = {
             "Анализ данных",
             "Управление данными"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA+AI&experience=between1And3&search_field=name&search_field=company_name&search_field=description&enable_snippets=false',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA+AI&experience=between1And3&search_field=name&search_field=company_name&search_field=description&enable_snippets=false",
+        "url": null,
+        "relatedSectors": ['09-03-04-2', 'intelligence', 'intelligence-1-1', 'intelligence-2-2', 'intelligence-2-3', 'intelligence-3-1', 'intelligence-4-1']
     },
     "intelligence-2-2": {
         "sectorTitle": "Искусственный интеллект",
@@ -1236,14 +1280,15 @@ const data: dataType = {
         "positionSide": "right",
         "directions": [
             "09.03.04",
-            "01.03.04",
+            "01.03.04"
         ],
         "profiles": [
             "Интеллектуальные системы поддержки принятия решений",
-            "Анализ данных",
+            "Анализ данных"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA+AI&experience=between1And3&search_field=name&search_field=company_name&search_field=description&enable_snippets=false',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA+AI&experience=between1And3&search_field=name&search_field=company_name&search_field=description&enable_snippets=false",
+        "url": null,
+        "relatedSectors": ['09-03-04-2', 'intelligence', 'intelligence-1-1', 'intelligence-2-1', 'intelligence-2-3', 'intelligence-3-1', 'intelligence-4-1']
     },
     "intelligence-2-3": {
         "sectorTitle": "Искусственный интеллект",
@@ -1267,8 +1312,9 @@ const data: dataType = {
         "profiles": [
             "Интеллектуальные системы поддержки принятия решений"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?text=%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA+%D0%BD%D0%B5%D0%B9%D1%80%D0%BE%D0%BD%D0%BD%D1%8B%D1%85+%D1%81%D0%B5%D1%82%D0%B5%D0%B9&from=suggest_post&salary=&ored_clusters=true&experience=between1And3&suggestId=8b738c03-09ba-4bb8-b6d6-1d7a0ab04dcb&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?text=%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA+%D0%BD%D0%B5%D0%B9%D1%80%D0%BE%D0%BD%D0%BD%D1%8B%D1%85+%D1%81%D0%B5%D1%82%D0%B5%D0%B9&from=suggest_post&salary=&ored_clusters=true&experience=between1And3&suggestId=8b738c03-09ba-4bb8-b6d6-1d7a0ab04dcb&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line",
+        "url": null,
+        "relatedSectors": ['09-03-04-2', 'intelligence', 'intelligence-1-1', 'intelligence-2-1', 'intelligence-2-2', 'intelligence-3-1', 'intelligence-4-1']
     },
     "intelligence-3-1": {
         "sectorTitle": "Искусственный интеллект",
@@ -1296,8 +1342,9 @@ const data: dataType = {
             "Анализ данных",
             "Управление данными"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&search_field=name&search_field=company_name&search_field=description&enable_snippets=false&text=%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA+AI&experience=between3And6',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&search_field=name&search_field=company_name&search_field=description&enable_snippets=false&text=%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA+AI&experience=between3And6",
+        "url": null,
+        "relatedSectors": ['09-03-04-2', 'intelligence', 'intelligence-1-1', 'intelligence-2-1', 'intelligence-2-2', 'intelligence-2-3', 'intelligence-4-1']
     },
     "intelligence-4-1": {
         "sectorTitle": "Искусственный интеллект",
@@ -1325,14 +1372,15 @@ const data: dataType = {
             "Анализ данных",
             "Управление данными"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&search_field=name&search_field=company_name&search_field=description&enable_snippets=false&text=%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+%D0%B4%D0%B5%D0%BF%D0%B0%D1%80%D1%82%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0+%D0%B8%D1%81%D0%BA%D1%83%D1%81%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE+%D0%B8%D0%BD%D1%82%D0%B5%D0%BB%D0%BB%D0%B5%D0%BA%D1%82%D0%B0',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&search_field=name&search_field=company_name&search_field=description&enable_snippets=false&text=%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+%D0%B4%D0%B5%D0%BF%D0%B0%D1%80%D1%82%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0+%D0%B8%D1%81%D0%BA%D1%83%D1%81%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE+%D0%B8%D0%BD%D1%82%D0%B5%D0%BB%D0%BB%D0%B5%D0%BA%D1%82%D0%B0",
+        "url": null,
+        "relatedSectors": ['09-03-04-2', 'intelligence', 'intelligence-1-1', 'intelligence-2-1', 'intelligence-2-2', 'intelligence-2-3', 'intelligence-3-1']
     },
     "iot": {
         "sectorTitle": "Вычислительная техника и интернет вещей",
         "sectorDescription": [
-            'Проектирование и разработка вычислительных устройств и встраиваемых систем — от электронных схем и аппаратных платформ до системного программного обеспечения.',
-            'Специалисты этой области создают умные устройства, промышленные контроллеры и IoT-решения, обеспечивая взаимодействие физического мира с цифровым.'
+            "Проектирование и разработка вычислительных устройств и встраиваемых систем — от электронных схем и аппаратных платформ до системного программного обеспечения.",
+            "Специалисты этой области создают умные устройства, промышленные контроллеры и IoT-решения, обеспечивая взаимодействие физического мира с цифровым."
         ],
         "jobTitle": null,
         "jobDescription": null,
@@ -1349,18 +1397,21 @@ const data: dataType = {
             "Цифровые комплексы, системы и сети"
         ],
         "vacancies": null,
-        "url": null
+        "url": null,
+        "relatedSectors": ["09-03-01-1", 'iot-1-1', 'iot-2-1', 'iot-2-2', 'iot-3-1', 'iot-4-1']
     },
     "iot-1-1": {
         "sectorTitle": "Вычислительная техника и интернет вещей",
         "sectorDescription": [
-            'Проектирование и разработка вычислительных устройств и встраиваемых систем — от электронных схем и аппаратных платформ до системного программного обеспечения.',
-            'Специалисты этой области создают умные устройства, промышленные контроллеры и IoT-решения, обеспечивая взаимодействие физического мира с цифровым.'
+            "Проектирование и разработка вычислительных устройств и встраиваемых систем — от электронных схем и аппаратных платформ до системного программного обеспечения.",
+            "Специалисты этой области создают умные устройства, промышленные контроллеры и IoT-решения, обеспечивая взаимодействие физического мира с цифровым."
         ],
-        "jobTitle": 'Стажёр',
-        "jobDescription": ['Знакомится с устройством вычислительных систем и принципами работы встраиваемых решений, помогает команде в выполнении простых задач и постепенно погружается в специфику разработки аппаратных и программных компонентов.',
-            'Требуется:\n— Готовность к обучению в отрасли\n— Базовые знания в электронике и схемотехнике\n— Базовые навыки программирования\n— Понимание архитектуры вычислительных систем\n— Аналитическое мышление'],
-        "jobColor": '#C63CEF',
+        "jobTitle": "Стажёр",
+        "jobDescription": [
+            "Знакомится с устройством вычислительных систем и принципами работы встраиваемых решений, помогает команде в выполнении простых задач и постепенно погружается в специфику разработки аппаратных и программных компонентов.",
+            "Требуется:\n— Готовность к обучению в отрасли\n— Базовые знания в электронике и схемотехнике\n— Базовые навыки программирования\n— Понимание архитектуры вычислительных систем\n— Аналитическое мышление"
+        ],
+        "jobColor": "#C63CEF",
         "jobColorOutline": "#E486FF",
         "positionAnimX": "-85%",
         "positionAnimY": "-45%",
@@ -1372,19 +1423,22 @@ const data: dataType = {
         "profiles": [
             "Цифровые комплексы, системы и сети"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?text=%D0%98%D0%BD%D0%B6%D0%B5%D0%BD%D0%B5%D1%80+%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&salary=&ored_clusters=true&experience=noExperience&suggestId=a17f7d82-946f-430b-9320-c1fa9447d684&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?text=%D0%98%D0%BD%D0%B6%D0%B5%D0%BD%D0%B5%D1%80+%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&salary=&ored_clusters=true&experience=noExperience&suggestId=a17f7d82-946f-430b-9320-c1fa9447d684&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line",
+        "url": null,
+        "relatedSectors": ["09-03-01-1", 'iot', 'iot-2-1', 'iot-2-2', 'iot-3-1', 'iot-4-1']
     },
     "iot-2-1": {
         "sectorTitle": "Вычислительная техника и интернет вещей",
         "sectorDescription": [
-            'Проектирование и разработка вычислительных устройств и встраиваемых систем — от электронных схем и аппаратных платформ до системного программного обеспечения.',
-            'Специалисты этой области создают умные устройства, промышленные контроллеры и IoT-решения, обеспечивая взаимодействие физического мира с цифровым.'
+            "Проектирование и разработка вычислительных устройств и встраиваемых систем — от электронных схем и аппаратных платформ до системного программного обеспечения.",
+            "Специалисты этой области создают умные устройства, промышленные контроллеры и IoT-решения, обеспечивая взаимодействие физического мира с цифровым."
         ],
-        "jobTitle": 'Инженер-схемотехник',
-        "jobDescription": ['Проектирует и разрабатывает электронные схемы и печатные платы для вычислительных устройств и IoT-решений, проводит моделирование и тестирование разработанных схем.',
-            'Требуется:\n— Знание принципов аналоговой и цифровой схемотехники\n— Навыки проектирования печатных плат\n— Умение работать с инструментами схемотехнического проектирования\n— Понимание принципов работы микроконтроллеров и процессоров\n— Навыки диагностики и отладки схем'],
-        "jobColor": '#C63CEF',
+        "jobTitle": "Инженер-схемотехник",
+        "jobDescription": [
+            "Проектирует и разрабатывает электронные схемы и печатные платы для вычислительных устройств и IoT-решений, проводит моделирование и тестирование разработанных схем.",
+            "Требуется:\n— Знание принципов аналоговой и цифровой схемотехники\n— Навыки проектирования печатных плат\n— Умение работать с инструментами схемотехнического проектирования\n— Понимание принципов работы микроконтроллеров и процессоров\n— Навыки диагностики и отладки схем"
+        ],
+        "jobColor": "#C63CEF",
         "jobColorOutline": "#B933E0",
         "positionAnimX": "-85%",
         "positionAnimY": "-45%",
@@ -1396,19 +1450,22 @@ const data: dataType = {
         "profiles": [
             "Цифровые комплексы, системы и сети"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&search_field=name&search_field=company_name&search_field=description&enable_snippets=false&text=%D0%98%D0%BD%D0%B6%D0%B5%D0%BD%D0%B5%D1%80-%D1%81%D1%85%D0%B5%D0%BC%D0%BE%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA&experience=between1And3',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&search_field=name&search_field=company_name&search_field=description&enable_snippets=false&text=%D0%98%D0%BD%D0%B6%D0%B5%D0%BD%D0%B5%D1%80-%D1%81%D1%85%D0%B5%D0%BC%D0%BE%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA&experience=between1And3",
+        "url": null,
+        "relatedSectors": ["09-03-01-1", 'iot', 'iot-1-1', 'iot-2-2', 'iot-3-1', 'iot-4-1']
     },
     "iot-2-2": {
         "sectorTitle": "Вычислительная техника и интернет вещей",
         "sectorDescription": [
-            'Проектирование и разработка вычислительных устройств и встраиваемых систем — от электронных схем и аппаратных платформ до системного программного обеспечения.',
-            'Специалисты этой области создают умные устройства, промышленные контроллеры и IoT-решения, обеспечивая взаимодействие физического мира с цифровым.'
+            "Проектирование и разработка вычислительных устройств и встраиваемых систем — от электронных схем и аппаратных платформ до системного программного обеспечения.",
+            "Специалисты этой области создают умные устройства, промышленные контроллеры и IoT-решения, обеспечивая взаимодействие физического мира с цифровым."
         ],
-        "jobTitle": 'Инженер-разработчик системного ПО',
-        "jobDescription": ['Разрабатывает низкоуровневое и системное программное обеспечение для вычислительных устройств и IoT-систем, работает с драйверами, операционными системами реального времени и встраиваемыми платформами.',
-            'Требуется:\n— Уверенные навыки программирования на C/C++\n— Понимание архитектуры процессоров и микроконтроллеров\n— Знание операционных систем реального времени\n— Навыки работы с интерфейсами и протоколами передачи данных\n— Понимание принципов взаимодействия аппаратуры и ПО'],
-        "jobColor": '#C63CEF',
+        "jobTitle": "Инженер-разработчик системного ПО",
+        "jobDescription": [
+            "Разрабатывает низкоуровневое и системное программное обеспечение для вычислительных устройств и IoT-систем, работает с драйверами, операционными системами реального времени и встраиваемыми платформами.",
+            "Требуется:\n— Уверенные навыки программирования на C/C++\n— Понимание архитектуры процессоров и микроконтроллеров\n— Знание операционных систем реального времени\n— Навыки работы с интерфейсами и протоколами передачи данных\n— Понимание принципов взаимодействия аппаратуры и ПО"
+        ],
+        "jobColor": "#C63CEF",
         "jobColorOutline": "#B933E0",
         "positionAnimX": "-85%",
         "positionAnimY": "-45%",
@@ -1420,19 +1477,22 @@ const data: dataType = {
         "profiles": [
             "Цифровые комплексы, системы и сети"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=%D0%98%D0%BD%D0%B6%D0%B5%D0%BD%D0%B5%D1%80+%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&experience=between1And3&search_field=name&search_field=company_name&search_field=description&enable_snippets=false',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=%D0%98%D0%BD%D0%B6%D0%B5%D0%BD%D0%B5%D1%80+%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&experience=between1And3&search_field=name&search_field=company_name&search_field=description&enable_snippets=false",
+        "url": null,
+        "relatedSectors": ["09-03-01-1", 'iot', 'iot-1-1', 'iot-2-1', 'iot-3-1', 'iot-4-1']
     },
     "iot-3-1": {
         "sectorTitle": "Вычислительная техника и интернет вещей",
         "sectorDescription": [
-            'Проектирование и разработка вычислительных устройств и встраиваемых систем — от электронных схем и аппаратных платформ до системного программного обеспечения.',
-            'Специалисты этой области создают умные устройства, промышленные контроллеры и IoT-решения, обеспечивая взаимодействие физического мира с цифровым.'
+            "Проектирование и разработка вычислительных устройств и встраиваемых систем — от электронных схем и аппаратных платформ до системного программного обеспечения.",
+            "Специалисты этой области создают умные устройства, промышленные контроллеры и IoT-решения, обеспечивая взаимодействие физического мира с цифровым."
         ],
-        "jobTitle": 'Ведущий инженер-разработчик вычислительной техники',
-        "jobDescription": ['Отвечает за техническую реализацию сложных проектов в области вычислительной техники и IoT, принимает ключевые технические решения, наставляет команду и обеспечивает качество разрабатываемых решений.',
-            'Требуется:\n— Экспертное знание аппаратных и программных аспектов вычислительных систем\n— Опыт разработки комплексных IoT-решений\n— Навыки наставничества и менторинга\n— Умение принимать и обосновывать технические решения\n— Широкий кругозор в современных технологиях и платформах IoT'],
-        "jobColor": '#C63CEF',
+        "jobTitle": "Ведущий инженер-разработчик вычислительной техники",
+        "jobDescription": [
+            "Отвечает за техническую реализацию сложных проектов в области вычислительной техники и IoT, принимает ключевые технические решения, наставляет команду и обеспечивает качество разрабатываемых решений.",
+            "Требуется:\n— Экспертное знание аппаратных и программных аспектов вычислительных систем\n— Опыт разработки комплексных IoT-решений\n— Навыки наставничества и менторинга\n— Умение принимать и обосновывать технические решения\n— Широкий кругозор в современных технологиях и платформах IoT"
+        ],
+        "jobColor": "#C63CEF",
         "jobColorOutline": "#BA33E2",
         "positionAnimX": "-85%",
         "positionAnimY": "-45%",
@@ -1444,19 +1504,22 @@ const data: dataType = {
         "profiles": [
             "Цифровые комплексы, системы и сети"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=%D0%98%D0%BD%D0%B6%D0%B5%D0%BD%D0%B5%D1%80+%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&experience=between3And6&search_field=name&search_field=company_name&search_field=description&enable_snippets=false',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=%D0%98%D0%BD%D0%B6%D0%B5%D0%BD%D0%B5%D1%80+%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&experience=between3And6&search_field=name&search_field=company_name&search_field=description&enable_snippets=false",
+        "url": null,
+        "relatedSectors": ["09-03-01-1", 'iot', 'iot-1-1', 'iot-2-1', 'iot-2-2', 'iot-4-1']
     },
     "iot-4-1": {
         "sectorTitle": "Вычислительная техника и интернет вещей",
         "sectorDescription": [
-            'Проектирование и разработка вычислительных устройств и встраиваемых систем — от электронных схем и аппаратных платформ до системного программного обеспечения.',
-            'Специалисты этой области создают умные устройства, промышленные контроллеры и IoT-решения, обеспечивая взаимодействие физического мира с цифровым.'
+            "Проектирование и разработка вычислительных устройств и встраиваемых систем — от электронных схем и аппаратных платформ до системного программного обеспечения.",
+            "Специалисты этой области создают умные устройства, промышленные контроллеры и IoT-решения, обеспечивая взаимодействие физического мира с цифровым."
         ],
-        "jobTitle": 'Руководитель департамента вычислительной техники и интернета вещей',
-        "jobDescription": ['Формирует стратегию развития направления вычислительной техники и IoT в организации, управляет командами и ресурсами, определяет технологические приоритеты и обеспечивает создание надёжных и масштабируемых решений.',
-            'Требуется:\n— Стратегическое мышление\n— Опыт управления командами\n— Глубокое понимание технологий вычислительной техники и IoT\n— Понимание бизнес-целей и задач организации\n— Навыки бюджетирования и управления ресурсами'],
-        "jobColor": '#C63CEF',
+        "jobTitle": "Руководитель департамента вычислительной техники и интернета вещей",
+        "jobDescription": [
+            "Формирует стратегию развития направления вычислительной техники и IoT в организации, управляет командами и ресурсами, определяет технологические приоритеты и обеспечивает создание надёжных и масштабируемых решений.",
+            "Требуется:\n— Стратегическое мышление\n— Опыт управления командами\n— Глубокое понимание технологий вычислительной техники и IoT\n— Понимание бизнес-целей и задач организации\n— Навыки бюджетирования и управления ресурсами"
+        ],
+        "jobColor": "#C63CEF",
         "jobColorOutline": "#880DAD",
         "positionAnimX": "-85%",
         "positionAnimY": "-45%",
@@ -1468,8 +1531,9 @@ const data: dataType = {
         "profiles": [
             "Цифровые комплексы, системы и сети"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?text=%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+%D0%B4%D0%B5%D0%BF%D0%B0%D1%80%D1%82%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0+%D0%B2%D1%8B%D1%87%D0%B8%D1%81%D0%BB%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9+%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B8&salary=&ored_clusters=true&experience=between3And6&suggestId=25f584c0-e7a1-45c4-b7df-eb23ad99fd0d&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?text=%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+%D0%B4%D0%B5%D0%BF%D0%B0%D1%80%D1%82%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0+%D0%B2%D1%8B%D1%87%D0%B8%D1%81%D0%BB%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9+%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B8&salary=&ored_clusters=true&experience=between3And6&suggestId=25f584c0-e7a1-45c4-b7df-eb23ad99fd0d&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line",
+        "url": null,
+        "relatedSectors": ["09-03-01-1", 'iot', 'iot-1-1', 'iot-2-1', 'iot-2-2', 'iot-3-1']
     },
     "management": {
         "sectorTitle": "Управление проектами",
@@ -1492,7 +1556,8 @@ const data: dataType = {
             "Информатизация организаций"
         ],
         "vacancies": null,
-        "url": null
+        "url": null,
+        "relatedSectors": ["09-03-03-1", 'management-1-1', 'management-2-1', 'management-2-2', 'management-3-1', 'management-3-2', 'management-4-1', 'management-5-1', 'methodology-1']
     },
     "management-1-1": {
         "sectorTitle": "Управление проектами",
@@ -1517,8 +1582,9 @@ const data: dataType = {
             "Цифровая трансформация",
             "Информатизация организаций"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=%D0%A2%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9+%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D0%B5%D0%BB%D1%8C&experience=noExperience&search_field=name&search_field=company_name&search_field=description&enable_snippets=false',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=%D0%A2%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9+%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D0%B5%D0%BB%D1%8C&experience=noExperience&search_field=name&search_field=company_name&search_field=description&enable_snippets=false",
+        "url": null,
+        "relatedSectors": ["09-03-03-1", 'management', 'management-2-1', 'management-2-2', 'management-3-1', 'management-3-2', 'management-4-1', 'management-5-1', 'methodology-1']
     },
     "management-2-1": {
         "sectorTitle": "Управление проектами",
@@ -1542,8 +1608,9 @@ const data: dataType = {
         "profiles": [
             "Информатизация организаций"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=%D0%91%D0%B8%D0%B7%D0%BD%D0%B5%D1%81+%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA&experience=between1And3&search_field=name&search_field=company_name&search_field=description&enable_snippets=false',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=%D0%91%D0%B8%D0%B7%D0%BD%D0%B5%D1%81+%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA&experience=between1And3&search_field=name&search_field=company_name&search_field=description&enable_snippets=false",
+        "url": null,
+        "relatedSectors": ["09-03-03-1", 'management', 'management-1-1', 'management-2-2', 'management-3-1', 'management-3-2', 'management-4-1', 'management-5-1', 'methodology-1']
     },
     "management-2-2": {
         "sectorTitle": "Управление проектами",
@@ -1567,8 +1634,9 @@ const data: dataType = {
         "profiles": [
             "Цифровая трансформация"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?text=%D0%A1%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%BD%D1%8B%D0%B9+%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA&salary=&ored_clusters=true&experience=between1And3&suggestId=22b52e02-c999-4115-ae56-392e2baeb031&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?text=%D0%A1%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%BD%D1%8B%D0%B9+%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA&salary=&ored_clusters=true&experience=between1And3&suggestId=22b52e02-c999-4115-ae56-392e2baeb031&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line",
+        "url": null,
+        "relatedSectors": ["09-03-03-1", 'management', 'management-1-1', 'management-2-1', 'management-3-1', 'management-3-2', 'management-4-1', 'management-5-1', 'methodology-1']
     },
     "management-3-1": {
         "sectorTitle": "Управление проектами",
@@ -1592,17 +1660,20 @@ const data: dataType = {
         "profiles": [
             "Информатизация организаций"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+IT+%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0&experience=between3And6&search_field=name&search_field=company_name&search_field=description&enable_snippets=false',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+IT+%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0&experience=between3And6&search_field=name&search_field=company_name&search_field=description&enable_snippets=false",
+        "url": null,
+        "relatedSectors": ["09-03-03-1", 'management', 'management-1-1', 'management-2-1', 'management-2-2', 'management-3-2', 'management-4-1', 'management-5-1', 'methodology-1']
     },
     "management-3-2": {
         "sectorTitle": "Управление проектами",
         "sectorDescription": [
             "Организация процессов разработки и внедрения ИТ-продуктов. Специалисты понимают ИТ изнутри — технологии, архитектуры, паттерны и инструменты — и разбираются в бизнес-процессах организаций, что позволяет им грамотно ставить задачи команде и обеспечивать создание качественного продукта. Выявляют и формализуют требования, выстраивают коммуникацию между бизнесом и командой, управляют проектами и портфелями, обеспечивая достижение целей в срок и в рамках бюджета."
         ],
-        "jobTitle": 'Директор по цифровизации',
-        "jobDescription": ['Руководит процессами цифровой трансформации в организации: определяет стратегию и приоритеты цифровизации, внедряет новые технологии и цифровые инструменты в бизнес-процессы, обеспечивает переход организации на новый уровень эффективности за счёт цифровых решений.',
-            'Требуется:\n— Стратегическое мышление и понимание трендов цифровизации\n— Глубокое понимание бизнес-процессов организации\n— Понимание ИТ-технологий, архитектур и инструментов\n— Навыки управления изменениями\n— Умение выстраивать коммуникацию на уровне топ-менеджмента'],
+        "jobTitle": "Директор по цифровизации",
+        "jobDescription": [
+            "Руководит процессами цифровой трансформации в организации: определяет стратегию и приоритеты цифровизации, внедряет новые технологии и цифровые инструменты в бизнес-процессы, обеспечивает переход организации на новый уровень эффективности за счёт цифровых решений.",
+            "Требуется:\n— Стратегическое мышление и понимание трендов цифровизации\n— Глубокое понимание бизнес-процессов организации\n— Понимание ИТ-технологий, архитектур и инструментов\n— Навыки управления изменениями\n— Умение выстраивать коммуникацию на уровне топ-менеджмента"
+        ],
         "jobColor": "#FFEE9B",
         "jobColorOutline": "#F8D524",
         "positionAnimX": "90%",
@@ -1613,10 +1684,11 @@ const data: dataType = {
             "09.03.03"
         ],
         "profiles": [
-            "Цифровая трансформация",
+            "Цифровая трансформация"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?text=%D0%94%D0%B8%D1%80%D0%B5%D0%BA%D1%82%D0%BE%D1%80+%D0%BF%D0%BE+%D1%86%D0%B8%D1%84%D1%80%D0%BE%D0%B2%D0%BE%D0%B9+%D1%82%D1%80%D0%B0%D0%BD%D1%81%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%B8&salary=&ored_clusters=true&experience=between3And6&suggestId=2b620c25-b1c1-4fa3-accd-6311085d03be&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?text=%D0%94%D0%B8%D1%80%D0%B5%D0%BA%D1%82%D0%BE%D1%80+%D0%BF%D0%BE+%D1%86%D0%B8%D1%84%D1%80%D0%BE%D0%B2%D0%BE%D0%B9+%D1%82%D1%80%D0%B0%D0%BD%D1%81%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%B8&salary=&ored_clusters=true&experience=between3And6&suggestId=2b620c25-b1c1-4fa3-accd-6311085d03be&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line",
+        "url": null,
+        "relatedSectors": ["09-03-03-1", 'management', 'management-1-1', 'management-2-1', 'management-2-2', 'management-3-1', 'management-4-1', 'management-5-1', 'methodology-1']
     },
     "management-4-1": {
         "sectorTitle": "Управление проектами",
@@ -1641,8 +1713,9 @@ const data: dataType = {
             "Цифровая трансформация",
             "Информатизация организаций"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?text=%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+%D0%BF%D0%BE%D1%80%D1%82%D1%84%D0%B5%D0%BB%D1%8F+%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%BE%D0%B2&salary=&ored_clusters=true&experience=between3And6&suggestId=c0f77072-c73a-487b-8e96-2dcf4ba80bfc&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?text=%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+%D0%BF%D0%BE%D1%80%D1%82%D1%84%D0%B5%D0%BB%D1%8F+%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%BE%D0%B2&salary=&ored_clusters=true&experience=between3And6&suggestId=c0f77072-c73a-487b-8e96-2dcf4ba80bfc&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line",
+        "url": null,
+        "relatedSectors": ["09-03-03-1", 'management', 'management-1-1', 'management-2-1', 'management-2-2', 'management-3-1', 'management-3-2', 'management-5-1', 'methodology-1']
     },
     "management-5-1": {
         "sectorTitle": "Управление проектами",
@@ -1667,8 +1740,9 @@ const data: dataType = {
             "Цифровая трансформация",
             "Информатизация организаций"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%BD%D0%BE%D0%B3%D0%BE+%D0%BE%D1%84%D0%B8%D1%81%D0%B0&experience=moreThan6&search_field=name&search_field=company_name&search_field=description&enable_snippets=false',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%BD%D0%BE%D0%B3%D0%BE+%D0%BE%D1%84%D0%B8%D1%81%D0%B0&experience=moreThan6&search_field=name&search_field=company_name&search_field=description&enable_snippets=false",
+        "url": null,
+        "relatedSectors": ["09-03-03-1", 'management', 'management-1-1', 'management-2-1', 'management-2-2', 'management-3-1', 'management-3-2', 'management-4-1', 'methodology-1']
     },
     "methodology-1": {
         "sectorTitle": "Гибкие методологии",
@@ -1686,7 +1760,8 @@ const data: dataType = {
         "directions": null,
         "profiles": null,
         "vacancies": null,
-        "url": null
+        "url": null,
+        "relatedSectors": ["09-03-03-1", 'management', 'management-1-1', 'management-2-1', 'management-2-2', 'management-3-1', 'management-3-2', 'management-4-1', 'management-5-1', '09-03-04-1', 'development', 'development-1-1', 'development-2-1', 'development-3-1', 'development-4-1', 'development-5-1', 'development-5-2', 'development-6-1']
     },
     "quantum": {
         "sectorTitle": "Квантовые информационные технологии",
@@ -1708,7 +1783,8 @@ const data: dataType = {
             "Квантовые коммуникации и вычисления"
         ],
         "vacancies": null,
-        "url": null
+        "url": null,
+        "relatedSectors": ["09-03-01-1", 'quantum-1-1', 'quantum-2-1', 'quantum-2-2', 'quantum-3-1', 'quantum-3-2', 'quantum-4-1']
     },
     "quantum-1-1": {
         "sectorTitle": "Квантовые информационные технологии",
@@ -1732,8 +1808,9 @@ const data: dataType = {
         "profiles": [
             "Квантовые коммуникации и вычисления"
         ],
-        "vacancies": 'https://xn--80adxoz8c.xn--p1ai/news/zapushchena-sovmestnaya-obrazovatelnaya-programma-bakalavriata-rosatom-kvantovye-tekhnologii-rzhd-rtu-mirea-kvantovye-kommunikatsii-i-vychisleniya/',
-        "url": null
+        "vacancies": "https://xn--80adxoz8c.xn--p1ai/news/zapushchena-sovmestnaya-obrazovatelnaya-programma-bakalavriata-rosatom-kvantovye-tekhnologii-rzhd-rtu-mirea-kvantovye-kommunikatsii-i-vychisleniya/",
+        "url": null,
+        "relatedSectors": ["09-03-01-1", 'quantum', 'quantum-2-1', 'quantum-2-2', 'quantum-3-1', 'quantum-3-2', 'quantum-4-1']
     },
     "quantum-2-1": {
         "sectorTitle": "Квантовые информационные технологии",
@@ -1757,8 +1834,9 @@ const data: dataType = {
         "profiles": [
             "Квантовые коммуникации и вычисления"
         ],
-        "vacancies": 'https://xn--80adxoz8c.xn--p1ai/news/zapushchena-sovmestnaya-obrazovatelnaya-programma-bakalavriata-rosatom-kvantovye-tekhnologii-rzhd-rtu-mirea-kvantovye-kommunikatsii-i-vychisleniya/',
-        "url": null
+        "vacancies": "https://xn--80adxoz8c.xn--p1ai/news/zapushchena-sovmestnaya-obrazovatelnaya-programma-bakalavriata-rosatom-kvantovye-tekhnologii-rzhd-rtu-mirea-kvantovye-kommunikatsii-i-vychisleniya/",
+        "url": null,
+        "relatedSectors": ["09-03-01-1", 'quantum', 'quantum-1-1', 'quantum-2-2', 'quantum-3-1', 'quantum-3-2', 'quantum-4-1']
     },
     "quantum-2-2": {
         "sectorTitle": "Квантовые информационные технологии",
@@ -1782,8 +1860,9 @@ const data: dataType = {
         "profiles": [
             "Квантовые коммуникации и вычисления"
         ],
-        "vacancies": 'https://xn--80adxoz8c.xn--p1ai/news/zapushchena-sovmestnaya-obrazovatelnaya-programma-bakalavriata-rosatom-kvantovye-tekhnologii-rzhd-rtu-mirea-kvantovye-kommunikatsii-i-vychisleniya/',
-        "url": null
+        "vacancies": "https://xn--80adxoz8c.xn--p1ai/news/zapushchena-sovmestnaya-obrazovatelnaya-programma-bakalavriata-rosatom-kvantovye-tekhnologii-rzhd-rtu-mirea-kvantovye-kommunikatsii-i-vychisleniya/",
+        "url": null,
+        "relatedSectors": ["09-03-01-1", 'quantum', 'quantum-1-1', 'quantum-2-1', 'quantum-3-1', 'quantum-3-2', 'quantum-4-1']
     },
     "quantum-3-1": {
         "sectorTitle": "Квантовые информационные технологии",
@@ -1807,8 +1886,9 @@ const data: dataType = {
         "profiles": [
             "Квантовые коммуникации и вычисления"
         ],
-        "vacancies": 'https://xn--80adxoz8c.xn--p1ai/news/zapushchena-sovmestnaya-obrazovatelnaya-programma-bakalavriata-rosatom-kvantovye-tekhnologii-rzhd-rtu-mirea-kvantovye-kommunikatsii-i-vychisleniya/',
-        "url": null
+        "vacancies": "https://xn--80adxoz8c.xn--p1ai/news/zapushchena-sovmestnaya-obrazovatelnaya-programma-bakalavriata-rosatom-kvantovye-tekhnologii-rzhd-rtu-mirea-kvantovye-kommunikatsii-i-vychisleniya/",
+        "url": null,
+        "relatedSectors": ["09-03-01-1", 'quantum', 'quantum-1-1', 'quantum-2-1', 'quantum-2-2', 'quantum-3-2', 'quantum-4-1']
     },
     "quantum-3-2": {
         "sectorTitle": "Квантовые информационные технологии",
@@ -1832,8 +1912,9 @@ const data: dataType = {
         "profiles": [
             "Квантовые коммуникации и вычисления"
         ],
-        "vacancies": 'https://xn--80adxoz8c.xn--p1ai/news/zapushchena-sovmestnaya-obrazovatelnaya-programma-bakalavriata-rosatom-kvantovye-tekhnologii-rzhd-rtu-mirea-kvantovye-kommunikatsii-i-vychisleniya/',
-        "url": null
+        "vacancies": "https://xn--80adxoz8c.xn--p1ai/news/zapushchena-sovmestnaya-obrazovatelnaya-programma-bakalavriata-rosatom-kvantovye-tekhnologii-rzhd-rtu-mirea-kvantovye-kommunikatsii-i-vychisleniya/",
+        "url": null,
+        "relatedSectors": ["09-03-01-1", 'quantum', 'quantum-1-1', 'quantum-2-1', 'quantum-2-2', 'quantum-3-1', 'quantum-4-1']
     },
     "quantum-4-1": {
         "sectorTitle": "Квантовые информационные технологии",
@@ -1857,8 +1938,9 @@ const data: dataType = {
         "profiles": [
             "Квантовые коммуникации и вычисления"
         ],
-        "vacancies": 'https://xn--80adxoz8c.xn--p1ai/news/zapushchena-sovmestnaya-obrazovatelnaya-programma-bakalavriata-rosatom-kvantovye-tekhnologii-rzhd-rtu-mirea-kvantovye-kommunikatsii-i-vychisleniya/',
-        "url": null
+        "vacancies": "https://xn--80adxoz8c.xn--p1ai/news/zapushchena-sovmestnaya-obrazovatelnaya-programma-bakalavriata-rosatom-kvantovye-tekhnologii-rzhd-rtu-mirea-kvantovye-kommunikatsii-i-vychisleniya/",
+        "url": null,
+        "relatedSectors": ["09-03-01-1", 'quantum', 'quantum-1-1', 'quantum-2-1', 'quantum-2-2', 'quantum-3-1', 'quantum-3-2']
     },
     "security": {
         "sectorTitle": "Информационная безопасность",
@@ -1877,10 +1959,11 @@ const data: dataType = {
             "09.03.04"
         ],
         "profiles": [
-            "Информационные технологии в атомной отрасли",
+            "Информационные технологии в атомной отрасли"
         ],
         "vacancies": null,
-        "url": null
+        "url": null,
+        "relatedSectors": ['additional-programm', 'security-1-1', 'security-2-1', 'security-2-2', 'security-2-3', 'security-3-1', 'security-4-1' ]
     },
     "security-1-1": {
         "sectorTitle": "Информационная безопасность",
@@ -1902,10 +1985,11 @@ const data: dataType = {
             "09.03.04"
         ],
         "profiles": [
-            "Информационные технологии в атомной отрасли",
+            "Информационные технологии в атомной отрасли"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?text=%D0%98%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%B0%D1%8F+%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D1%8C&salary=&ored_clusters=true&experience=noExperience&suggestId=f3a48d0e-0050-45d1-b406-e261ec914a33&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?text=%D0%98%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%B0%D1%8F+%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D1%8C&salary=&ored_clusters=true&experience=noExperience&suggestId=f3a48d0e-0050-45d1-b406-e261ec914a33&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line",
+        "url": null,
+        "relatedSectors": ['additional-programm', 'security', 'security-2-1', 'security-2-2', 'security-2-3', 'security-3-1', 'security-4-1' ]
     },
     "security-2-1": {
         "sectorTitle": "Информационная безопасность",
@@ -1927,10 +2011,11 @@ const data: dataType = {
             "09.03.04"
         ],
         "profiles": [
-            "Информационные технологии в атомной отрасли",
+            "Информационные технологии в атомной отрасли"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=%D0%A2%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5+%D0%BD%D0%B0+%D0%BF%D1%80%D0%BE%D0%BD%D0%B8%D0%BA%D0%BD%D0%BE%D0%B2%D0%B5%D0%BD%D0%B8%D0%B5&experience=between1And3&search_field=name&search_field=company_name&search_field=description&enable_snippets=false',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=%D0%A2%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5+%D0%BD%D0%B0+%D0%BF%D1%80%D0%BE%D0%BD%D0%B8%D0%BA%D0%BD%D0%BE%D0%B2%D0%B5%D0%BD%D0%B8%D0%B5&experience=between1And3&search_field=name&search_field=company_name&search_field=description&enable_snippets=false",
+        "url": null,
+        "relatedSectors": ['additional-programm', 'security', 'security-1-1', 'security-2-2', 'security-2-3', 'security-3-1', 'security-4-1' ]
     },
     "security-2-2": {
         "sectorTitle": "Информационная безопасность",
@@ -1952,10 +2037,11 @@ const data: dataType = {
             "09.03.04"
         ],
         "profiles": [
-            "Информационные технологии в атомной отрасли",
+            "Информационные технологии в атомной отрасли"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=%D0%90%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA+%D0%BF%D0%BE+%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%BE%D0%B9+%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D0%B8&experience=between1And3&industry=7&search_field=name&search_field=company_name&search_field=description&enable_snippets=false',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=%D0%90%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA+%D0%BF%D0%BE+%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%BE%D0%B9+%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D0%B8&experience=between1And3&industry=7&search_field=name&search_field=company_name&search_field=description&enable_snippets=false",
+        "url": null,
+        "relatedSectors": ['additional-programm', 'security', 'security-1-1', 'security-2-1', 'security-2-3', 'security-3-1', 'security-4-1' ]
     },
     "security-2-3": {
         "sectorTitle": "Информационная безопасность",
@@ -1977,10 +2063,11 @@ const data: dataType = {
             "09.03.04"
         ],
         "profiles": [
-            "Информационные технологии в атомной отрасли",
+            "Информационные технологии в атомной отрасли"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=SOC&experience=between1And3&search_field=name&search_field=company_name&search_field=description&enable_snippets=false',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=SOC&experience=between1And3&search_field=name&search_field=company_name&search_field=description&enable_snippets=false",
+        "url": null,
+        "relatedSectors": ['additional-programm', 'security', 'security-1-1', 'security-2-1', 'security-2-2', 'security-3-1', 'security-4-1' ]
     },
     "security-3-1": {
         "sectorTitle": "Информационная безопасность",
@@ -2002,10 +2089,11 @@ const data: dataType = {
             "09.03.04"
         ],
         "profiles": [
-            "Информационные технологии в атомной отрасли",
+            "Информационные технологии в атомной отрасли"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+%D0%B3%D1%80%D1%83%D0%BF%D0%BF%D1%8B+%D0%BF%D0%BE+%D0%BE%D0%B1%D0%B5%D1%81%D0%BF%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D1%8E+%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%BE%D0%B9+%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D0%B8&experience=between3And6&search_field=name&search_field=company_name&search_field=description&enable_snippets=false',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+%D0%B3%D1%80%D1%83%D0%BF%D0%BF%D1%8B+%D0%BF%D0%BE+%D0%BE%D0%B1%D0%B5%D1%81%D0%BF%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D1%8E+%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%BE%D0%B9+%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D0%B8&experience=between3And6&search_field=name&search_field=company_name&search_field=description&enable_snippets=false",
+        "url": null,
+        "relatedSectors": ['additional-programm', 'security', 'security-1-1', 'security-2-1', 'security-2-2', 'security-2-3', 'security-4-1' ]
     },
     "security-4-1": {
         "sectorTitle": "Информационная безопасность",
@@ -2027,10 +2115,11 @@ const data: dataType = {
             "09.03.04"
         ],
         "profiles": [
-            "Информационные технологии в атомной отрасли",
+            "Информационные технологии в атомной отрасли"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?text=%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+%D0%B4%D0%B5%D0%BF%D0%B0%D1%80%D1%82%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0+%D0%BF%D0%BE+%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%BE%D0%B9+%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D0%B8&salary=&ored_clusters=true&experience=moreThan6&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?text=%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+%D0%B4%D0%B5%D0%BF%D0%B0%D1%80%D1%82%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0+%D0%BF%D0%BE+%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%BE%D0%B9+%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D0%B8&salary=&ored_clusters=true&experience=moreThan6&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line",
+        "url": null,
+        "relatedSectors": ['additional-programm', 'security', 'security-1-1', 'security-2-1', 'security-2-2', 'security-2-3', 'security-3-1' ]
     },
     "telecommunications": {
         "sectorTitle": "Телекоммуникации",
@@ -2052,7 +2141,8 @@ const data: dataType = {
             "Цифровые комплексы, системы и сети"
         ],
         "vacancies": null,
-        "url": null
+        "url": null,
+        "relatedSectors": ["09-03-01-1", 'telecommunications-1-1', 'telecommunications-2-1', 'telecommunications-2-2', 'telecommunications-2-3', 'telecommunications-3-1', 'telecommunications-4-1']
     },
     "telecommunications-1-1": {
         "sectorTitle": "Телекоммуникации",
@@ -2078,10 +2168,11 @@ const data: dataType = {
             "Цифровые комплексы, системы и сети",
             "Квантовые коммуникации и вычисления",
             "Инфраструктура информационных технологий",
-            "Информационные технологии в атомной отрасли",
+            "Информационные технологии в атомной отрасли"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&search_field=name&search_field=company_name&search_field=description&enable_snippets=false&text=%D0%A2%D0%B5%D0%BB%D0%B5%D0%BA%D0%BE%D0%BC%D0%BC%D1%83%D0%BD%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8&experience=noExperience',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&search_field=name&search_field=company_name&search_field=description&enable_snippets=false&text=%D0%A2%D0%B5%D0%BB%D0%B5%D0%BA%D0%BE%D0%BC%D0%BC%D1%83%D0%BD%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8&experience=noExperience",
+        "url": null,
+        "relatedSectors": ["09-03-01-1", 'telecommunications', 'telecommunications-2-1', 'telecommunications-2-2', 'telecommunications-2-3', 'telecommunications-3-1', 'telecommunications-4-1']
     },
     "telecommunications-2-1": {
         "sectorTitle": "Телекоммуникации",
@@ -2107,10 +2198,11 @@ const data: dataType = {
             "Цифровые комплексы, системы и сети",
             "Квантовые коммуникации и вычисления",
             "Инфраструктура информационных технологий",
-            "Информационные технологии в атомной отрасли",
+            "Информационные технологии в атомной отрасли"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=%D0%A2%D0%B5%D0%BB%D0%B5%D0%BA%D0%BE%D0%BC%D0%BC%D1%83%D0%BD%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8+%D0%B8+%D0%BE%D0%B1%D0%BE%D1%80%D1%83%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5&experience=between1And3&search_field=name&search_field=company_name&search_field=description&enable_snippets=false',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&text=%D0%A2%D0%B5%D0%BB%D0%B5%D0%BA%D0%BE%D0%BC%D0%BC%D1%83%D0%BD%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8+%D0%B8+%D0%BE%D0%B1%D0%BE%D1%80%D1%83%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5&experience=between1And3&search_field=name&search_field=company_name&search_field=description&enable_snippets=false",
+        "url": null,
+        "relatedSectors": ["09-03-01-1", 'telecommunications', 'telecommunications-1-1', 'telecommunications-2-2', 'telecommunications-2-3', 'telecommunications-3-1', 'telecommunications-4-1']
     },
     "telecommunications-2-2": {
         "sectorTitle": "Телекоммуникации",
@@ -2134,10 +2226,11 @@ const data: dataType = {
         ],
         "profiles": [
             "Цифровые комплексы, системы и сети",
-            "Информационные технологии в атомной отрасли",
+            "Информационные технологии в атомной отрасли"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?text=%D0%A2%D0%B5%D0%BB%D0%B5%D0%BA%D0%BE%D0%BC%D0%BC%D1%83%D0%BD%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8+%D0%B8+%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%BD%D0%BE%D0%B5+%D0%BE%D0%B1%D0%B5%D1%81%D0%BF%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D0%B5&salary=&ored_clusters=true&experience=between1And3&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?text=%D0%A2%D0%B5%D0%BB%D0%B5%D0%BA%D0%BE%D0%BC%D0%BC%D1%83%D0%BD%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8+%D0%B8+%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%BD%D0%BE%D0%B5+%D0%BE%D0%B1%D0%B5%D1%81%D0%BF%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D0%B5&salary=&ored_clusters=true&experience=between1And3&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line",
+        "url": null,
+        "relatedSectors": ["09-03-01-1", 'telecommunications', 'telecommunications-1-1', 'telecommunications-2-1', 'telecommunications-2-3', 'telecommunications-3-1', 'telecommunications-4-1']
     },
     "telecommunications-2-3": {
         "sectorTitle": "Телекоммуникации",
@@ -2162,10 +2255,11 @@ const data: dataType = {
         "profiles": [
             "Квантовые коммуникации и вычисления",
             "Инфраструктура информационных технологий",
-            "Информационные технологии в атомной отрасли",
+            "Информационные технологии в атомной отрасли"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?text=%D0%A2%D0%B5%D0%BB%D0%B5%D0%BA%D0%BE%D0%BC%D0%BC%D1%83%D0%BD%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8+%D0%B8+c%D1%80%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%B0+%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D1%8B+%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%B8&salary=&ored_clusters=true&experience=between1And3&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?text=%D0%A2%D0%B5%D0%BB%D0%B5%D0%BA%D0%BE%D0%BC%D0%BC%D1%83%D0%BD%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8+%D0%B8+c%D1%80%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%B0+%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D1%8B+%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%B8&salary=&ored_clusters=true&experience=between1And3&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line",
+        "url": null,
+        "relatedSectors": ["09-03-01-1", 'telecommunications', 'telecommunications-1-1', 'telecommunications-2-1', 'telecommunications-2-2', 'telecommunications-3-1', 'telecommunications-4-1']
     },
     "telecommunications-3-1": {
         "sectorTitle": "Телекоммуникации",
@@ -2191,10 +2285,11 @@ const data: dataType = {
             "Цифровые комплексы, системы и сети",
             "Квантовые коммуникации и вычисления",
             "Инфраструктура информационных технологий",
-            "Информационные технологии в атомной отрасли",
+            "Информационные технологии в атомной отрасли"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&industry=9&industry=7&search_field=name&search_field=company_name&search_field=description&enable_snippets=false&text=%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+%D0%B3%D1%80%D1%83%D0%BF%D0%BF%D1%8B+%D1%82%D0%B5%D0%BB%D0%B5%D0%BA%D0%BE%D0%BC%D0%BC%D1%83%D0%BD%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B9&experience=between3And6',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&industry=9&industry=7&search_field=name&search_field=company_name&search_field=description&enable_snippets=false&text=%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+%D0%B3%D1%80%D1%83%D0%BF%D0%BF%D1%8B+%D1%82%D0%B5%D0%BB%D0%B5%D0%BA%D0%BE%D0%BC%D0%BC%D1%83%D0%BD%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B9&experience=between3And6",
+        "url": null,
+        "relatedSectors": ["09-03-01-1", 'telecommunications', 'telecommunications-1-1', 'telecommunications-2-1', 'telecommunications-2-2', 'telecommunications-2-3', 'telecommunications-4-1']
     },
     "telecommunications-4-1": {
         "sectorTitle": "Телекоммуникации",
@@ -2220,10 +2315,11 @@ const data: dataType = {
             "Цифровые комплексы, системы и сети",
             "Квантовые коммуникации и вычисления",
             "Инфраструктура информационных технологий",
-            "Информационные технологии в атомной отрасли",
+            "Информационные технологии в атомной отрасли"
         ],
-        "vacancies": 'https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&search_field=name&search_field=company_name&search_field=description&enable_snippets=false&text=%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+%D0%B4%D0%B5%D0%BF%D0%B0%D1%80%D1%82%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0+%D1%82%D0%B5%D0%BB%D0%B5%D0%BA%D0%BE%D0%BC%D0%BC%D1%83%D0%BD%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8&experience=moreThan6',
-        "url": null
+        "vacancies": "https://hh.ru/search/vacancy?ored_clusters=true&hhtmFrom=vacancy_search_list&hhtmFromLabel=vacancy_search_line&search_field=name&search_field=company_name&search_field=description&enable_snippets=false&text=%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+%D0%B4%D0%B5%D0%BF%D0%B0%D1%80%D1%82%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0+%D1%82%D0%B5%D0%BB%D0%B5%D0%BA%D0%BE%D0%BC%D0%BC%D1%83%D0%BD%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8&experience=moreThan6",
+        "url": null,
+        "relatedSectors": ["09-03-01-1", 'telecommunications', 'telecommunications-1-1', 'telecommunications-2-1', 'telecommunications-2-2', 'telecommunications-2-3', 'telecommunications-3-1']
     }
 }
 

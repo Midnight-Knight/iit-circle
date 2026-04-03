@@ -2,6 +2,24 @@ import data from "./data.ts";
 import {Modal, ModalJob} from "./Modal.ts";
 import {animate} from "motion";
 
+const DARK = {
+    strokeActive: '0.0833333',
+    strokeHover: '0.6',
+    colorActive: '#9D9D9D',
+    colorHover: '#FFFFFF',
+    opacityActive: '1',
+    opacityInactive: '0.3',
+} as const;
+
+const LIGHT = {
+    strokeActive: '0.0833333',
+    strokeHover: '0.6',
+    colorActive: '#3B3C48',
+    colorHover: '#151515',
+    opacityActive: '1',
+    opacityInactive: '0.3',
+} as const;
+
 const isTouch = window.matchMedia('(hover: none)').matches;
 const isTablet = window.innerWidth < 1335;
 const app = document.querySelector("#app");
@@ -15,6 +33,22 @@ const lightElementsCache = new Map<string, { vector: HTMLElement, title: HTMLEle
 
 type ElementState = 'active' | 'activeAndHover' | 'noActive' | 'noActiveAndHover' | 'accentuated';
 const animateCheck = settingsModal.querySelector<HTMLInputElement>('.animation-check');
+let theme = 'dark';
+
+const savedTheme = localStorage.getItem('theme');
+const savedAnimation = localStorage.getItem('animation');
+
+if (savedTheme) {
+    theme = savedTheme;
+}
+
+if (animateCheck) {
+    animateCheck.checked = savedAnimation !== null ? savedAnimation === 'true' : true;
+}
+
+animateCheck?.addEventListener('change', () => {
+    localStorage.setItem('animation', String(animateCheck.checked));
+});
 
 const hasDarkElement = new Map<string, ElementState>();
 const hasLightElement = new Map<string, ElementState>();
@@ -115,27 +149,27 @@ const hoverDark = (elementVector: HTMLElement | null, elementTitle: HTMLElement 
             break;
         case 'active':
             hasElement.set(id, 'activeAndHover');
-            elementVector!.setAttribute('stroke-width', '0.5');
-            elementVector!.setAttribute('stroke-color', '#FFFFFF');
+            elementVector!.setAttribute('stroke-width', DARK.strokeHover);
+            elementVector!.setAttribute('stroke-color', DARK.colorHover);
             break;
         case 'activeAndHover':
             hasElement.set(id, 'active');
-            elementVector!.setAttribute('stroke-width', '0.0833333');
-            elementVector!.setAttribute('stroke-color', '#9D9D9D');
+            elementVector!.setAttribute('stroke-width', DARK.strokeActive);
+            elementVector!.setAttribute('stroke-color', DARK.colorActive);
             break;
         case 'noActive':
             hasElement.set(id, 'noActiveAndHover');
-            elementVector!.setAttribute('opacity', '1');
-            elementTitle!.setAttribute('opacity', '1');
-            elementVector!.setAttribute('stroke-width', '0.5');
-            elementVector!.setAttribute('stroke-color', '#FFFFFF');
+            elementVector!.setAttribute('opacity', DARK.opacityActive);
+            elementTitle!.setAttribute('opacity', DARK.opacityActive);
+            elementVector!.setAttribute('stroke-width', DARK.strokeHover);
+            elementVector!.setAttribute('stroke-color', DARK.colorHover);
             break;
         case 'noActiveAndHover':
             hasElement.set(id, 'noActive');
-            elementVector!.setAttribute('opacity', '0.5');
-            elementTitle!.setAttribute('opacity', '0.5');
-            elementVector!.setAttribute('stroke-width', '0.0833333');
-            elementVector!.setAttribute('stroke-color', '#9D9D9D');
+            elementVector!.setAttribute('opacity', DARK.opacityInactive);
+            elementTitle!.setAttribute('opacity', DARK.opacityInactive);
+            elementVector!.setAttribute('stroke-width', DARK.strokeActive);
+            elementVector!.setAttribute('stroke-color', DARK.colorActive);
             break;
     }
 };
@@ -147,43 +181,43 @@ const hoverLight = (elementVector: HTMLElement | null, elementTitle: HTMLElement
             break;
         case 'active':
             hasElement.set(id, 'activeAndHover');
-            elementVector!.setAttribute('stroke-width', '0.5');
-            elementVector!.setAttribute('stroke-color', '#151515');
+            elementVector!.setAttribute('stroke-width', LIGHT.strokeHover);
+            elementVector!.setAttribute('stroke-color', LIGHT.colorHover);
             break;
         case 'activeAndHover':
             hasElement.set(id, 'active');
-            elementVector!.setAttribute('stroke-width', '0.0833333');
-            elementVector!.setAttribute('stroke-color', '#3B3C48');
+            elementVector!.setAttribute('stroke-width', LIGHT.strokeActive);
+            elementVector!.setAttribute('stroke-color', LIGHT.colorActive);
             break;
         case 'noActive':
             hasElement.set(id, 'noActiveAndHover');
-            elementVector!.setAttribute('opacity', '1');
-            elementTitle!.setAttribute('opacity', '1');
-            elementVector!.setAttribute('stroke-width', '0.5');
-            elementVector!.setAttribute('stroke-color', '#151515');
+            elementVector!.setAttribute('opacity', LIGHT.opacityActive);
+            elementTitle!.setAttribute('opacity', LIGHT.opacityActive);
+            elementVector!.setAttribute('stroke-width', LIGHT.strokeHover);
+            elementVector!.setAttribute('stroke-color', LIGHT.colorHover);
             break;
         case 'noActiveAndHover':
             hasElement.set(id, 'noActive');
-            elementVector!.setAttribute('opacity', '0.5');
-            elementTitle!.setAttribute('opacity', '0.5');
-            elementVector!.setAttribute('stroke-width', '0.0833333');
-            elementVector!.setAttribute('stroke-color', '#3B3C48');
+            elementVector!.setAttribute('opacity', LIGHT.opacityInactive);
+            elementTitle!.setAttribute('opacity', LIGHT.opacityInactive);
+            elementVector!.setAttribute('stroke-width', LIGHT.strokeActive);
+            elementVector!.setAttribute('stroke-color', LIGHT.colorActive);
             break;
     }
 };
 
 function applyAccentuatedDark(elVector: HTMLElement, elTitle: HTMLElement) {
-    elTitle.setAttribute('opacity', '1');
-    elVector.setAttribute('opacity', '1');
-    elVector.setAttribute('stroke-width', '0.5');
-    elVector.setAttribute('stroke-color', '#FFFFFF');
+    elTitle.setAttribute('opacity', DARK.opacityActive);
+    elVector.setAttribute('opacity', DARK.opacityActive);
+    elVector.setAttribute('stroke-width', DARK.strokeHover);
+    elVector.setAttribute('stroke-color', DARK.colorHover);
 }
 
 function applyAccentuatedLight(elVector: HTMLElement, elTitle: HTMLElement) {
-    elTitle.setAttribute('opacity', '1');
-    elVector.setAttribute('opacity', '1');
-    elVector.setAttribute('stroke-width', '0.5');
-    elVector.setAttribute('stroke-color', '#151515');
+    elTitle.setAttribute('opacity', LIGHT.opacityActive);
+    elVector.setAttribute('opacity', LIGHT.opacityActive);
+    elVector.setAttribute('stroke-width', LIGHT.strokeHover);
+    elVector.setAttribute('stroke-color', LIGHT.colorHover);
 }
 
 export function resetAllElements() {
@@ -194,10 +228,10 @@ export function resetAllElements() {
             const elTitleForEach = darkElementsCache.get(idForEach)?.title as HTMLElement;
 
             hasDarkElement.set(idForEach, 'active');
-            elTitleForEach.setAttribute('opacity', '1');
-            elVectorForEach.setAttribute('opacity', '1');
-            elVectorForEach.setAttribute('stroke-width', '0.0833333');
-            elVectorForEach.setAttribute('stroke-color', '#9D9D9D');
+            elTitleForEach.setAttribute('opacity', DARK.opacityActive);
+            elVectorForEach.setAttribute('opacity', DARK.opacityActive);
+            elVectorForEach.setAttribute('stroke-width', DARK.strokeActive);
+            elVectorForEach.setAttribute('stroke-color', DARK.colorActive);
         }
     }
 
@@ -208,10 +242,10 @@ export function resetAllElements() {
             const elTitleForEach = lightElementsCache.get(idForEach)?.title as HTMLElement;
 
             hasLightElement.set(idForEach, 'active');
-            elTitleForEach.setAttribute('opacity', '1');
-            elVectorForEach.setAttribute('opacity', '1');
-            elVectorForEach.setAttribute('stroke-width', '0.0833333');
-            elVectorForEach.setAttribute('stroke-color', '#3B3C48');
+            elTitleForEach.setAttribute('opacity', LIGHT.opacityActive);
+            elVectorForEach.setAttribute('opacity', LIGHT.opacityActive);
+            elVectorForEach.setAttribute('stroke-width', LIGHT.strokeActive);
+            elVectorForEach.setAttribute('stroke-color', LIGHT.colorActive);
         }
     }
 }
@@ -242,19 +276,25 @@ for (const element of elementsDark) {
                         if (idForEach === id) {
                             hasDarkElement.set(idForEach, 'accentuated');
                             applyAccentuatedDark(elVectorForEach, elTitleForEach);
+                        } else if (data[id].relatedSectors?.includes(idForEach)) {
+                            hasDarkElement.set(idForEach, 'active');
+                            elTitleForEach.setAttribute('opacity', DARK.opacityActive);
+                            elVectorForEach.setAttribute('opacity', DARK.opacityActive);
+                            elVectorForEach.setAttribute('stroke-width', DARK.strokeActive);
+                            elVectorForEach.setAttribute('stroke-color', DARK.colorActive);
                         } else {
                             if (hasForEach === 'activeAndHover' || hasForEach === 'noActiveAndHover') {
                                 hasDarkElement.set(idForEach, 'noActiveAndHover');
-                                elVectorForEach.setAttribute('stroke-width', '0.5');
-                                elVectorForEach.setAttribute('stroke-color', '#FFFFFF');
-                                elTitleForEach.setAttribute('opacity', '1');
-                                elVectorForEach.setAttribute('opacity', '1');
+                                elVectorForEach.setAttribute('stroke-width', DARK.strokeHover);
+                                elVectorForEach.setAttribute('stroke-color', DARK.colorHover);
+                                elTitleForEach.setAttribute('opacity', DARK.opacityActive);
+                                elVectorForEach.setAttribute('opacity', DARK.opacityActive);
                             } else {
                                 hasDarkElement.set(idForEach, 'noActive');
-                                elVectorForEach.setAttribute('stroke-width', '0.0833333');
-                                elVectorForEach.setAttribute('stroke-color', '#9D9D9D');
-                                elTitleForEach.setAttribute('opacity', '0.5');
-                                elVectorForEach.setAttribute('opacity', '0.5');
+                                elVectorForEach.setAttribute('stroke-width', DARK.strokeActive);
+                                elVectorForEach.setAttribute('stroke-color', DARK.colorActive);
+                                elTitleForEach.setAttribute('opacity', DARK.opacityInactive);
+                                elVectorForEach.setAttribute('opacity', DARK.opacityInactive);
                             }
                         }
                     }
@@ -301,19 +341,25 @@ for (const element of elementsLight) {
                         if (idForEach === id) {
                             hasLightElement.set(idForEach, 'accentuated');
                             applyAccentuatedLight(elVectorForEach, elTitleForEach);
+                        } else if (data[id].relatedSectors?.includes(idForEach)) {
+                            hasLightElement.set(idForEach, 'active');
+                            elTitleForEach.setAttribute('opacity', LIGHT.opacityActive);
+                            elVectorForEach.setAttribute('opacity', LIGHT.opacityActive);
+                            elVectorForEach.setAttribute('stroke-width', LIGHT.strokeActive);
+                            elVectorForEach.setAttribute('stroke-color', LIGHT.colorActive);
                         } else {
                             if (hasForEach === 'activeAndHover' || hasForEach === 'noActiveAndHover') {
                                 hasLightElement.set(idForEach, 'noActiveAndHover');
-                                elVectorForEach.setAttribute('stroke-width', '0.5');
-                                elVectorForEach.setAttribute('stroke-color', '#151515');
-                                elTitleForEach.setAttribute('opacity', '1');
-                                elVectorForEach.setAttribute('opacity', '1');
+                                elVectorForEach.setAttribute('stroke-width', LIGHT.strokeHover);
+                                elVectorForEach.setAttribute('stroke-color', LIGHT.colorHover);
+                                elTitleForEach.setAttribute('opacity', LIGHT.opacityActive);
+                                elVectorForEach.setAttribute('opacity', LIGHT.opacityActive);
                             } else {
                                 hasLightElement.set(idForEach, 'noActive');
-                                elVectorForEach.setAttribute('stroke-width', '0.0833333');
-                                elVectorForEach.setAttribute('stroke-color', '#3B3C48');
-                                elTitleForEach.setAttribute('opacity', '0.5');
-                                elVectorForEach.setAttribute('opacity', '0.5');
+                                elVectorForEach.setAttribute('stroke-width', LIGHT.strokeActive);
+                                elVectorForEach.setAttribute('stroke-color', LIGHT.colorActive);
+                                elTitleForEach.setAttribute('opacity', LIGHT.opacityInactive);
+                                elVectorForEach.setAttribute('opacity', LIGHT.opacityInactive);
                             }
                         }
                     }
@@ -334,15 +380,15 @@ for (const element of elementsLight) {
     }
 }
 
-let theme = 'dark';
-
 function buttonLightChangeTheme() {
     theme = 'dark';
+    localStorage.setItem('theme', 'dark');
     changeTheme();
 }
 
 function buttonDarkChangeTheme() {
     theme = 'light';
+    localStorage.setItem('theme', 'light');
     changeTheme();
 }
 
@@ -466,6 +512,8 @@ function openModal(id: string): HTMLElement{
     }
 }
 
+
+
 const buttonDark = document.querySelector('.button-theme-dark');
 const buttonLight = document.querySelector('.button-theme-light');
 if (buttonDark && buttonLight) {
@@ -491,4 +539,11 @@ document.addEventListener('click', (e : MouseEvent) =>{
         animate(settingsModal, { opacity: 0 }, { duration: 0.1});
     }
 })
+
 changeTheme();
+
+if (savedTheme === 'light') {
+    buttonDarkChangeTheme();
+} else {
+    buttonLightChangeTheme();
+}
