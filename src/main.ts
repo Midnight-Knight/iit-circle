@@ -3,8 +3,8 @@ import {Modal, ModalJob} from "./Modal.ts";
 import {animate} from "motion";
 
 const DARK = {
-    strokeActive: '0.0833333',
-    strokeHover: '0.6',
+    strokeActive: '0.32',
+    strokeHover: '2.4',
     colorActive: '#9D9D9D',
     colorHover: '#FFFFFF',
     opacityActive: '1',
@@ -12,8 +12,8 @@ const DARK = {
 } as const;
 
 const LIGHT = {
-    strokeActive: '0.0833333',
-    strokeHover: '0.6',
+    strokeActive: '0.32',
+    strokeHover: '2.4',
     colorActive: '#3B3C48',
     colorHover: '#151515',
     opacityActive: '1',
