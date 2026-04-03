@@ -76,7 +76,6 @@ export class ModalJob extends Modal {
     protected scopeOfWork: HTMLElement;
     protected skills: HTMLElement;
     protected vacancies: HTMLAnchorElement;
-    protected jobColor: string | null = null;
     constructor(modal: HTMLElement, data: dataType, key: string) {
         super(modal, data, key);
         this.jobTitle = modal.querySelector('.job-title') as HTMLElement;
@@ -99,9 +98,6 @@ export class ModalJob extends Modal {
                     ${items.slice(1).map(item => `<li>${(item)}</li>`).join('')}
                 </ul>` ;
         }
-        if (this.sectorData.jobColor !== null) {
-            this.jobColor = this.sectorData.jobColor;
-        }
         if (this.sectorData.vacancies !== null) {
             this.vacancies.href = this.sectorData.vacancies;
         } else {
@@ -109,7 +105,10 @@ export class ModalJob extends Modal {
         }
     }
     public getJobColor(): string | null {
-        return this.jobColor;
+        return this.sectorData.jobColor;
+    }
+    public getOutlineColor(): string | null{
+        return this.sectorData.jobColorOutline;
     }
 }
 
